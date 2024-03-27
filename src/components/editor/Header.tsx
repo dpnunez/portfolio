@@ -12,7 +12,7 @@ export function Header() {
         <Link href="/">
           <h1 className="text-lg group">
             <span className="text-pink-500 font-bold">whoami</span>
-            <span className="opacity-60 italic group-hover:opacity-100 transition-opacity">
+            <span className="opacity-60 italic group-hover:opacity-100 transition-opacity group-hover:text-emerald-500 group-hover:font-bold transition-all">
               {' > '}dpnunez
             </span>
           </h1>

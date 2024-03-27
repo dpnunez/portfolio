@@ -5,7 +5,7 @@ import {
 } from '@radix-ui/react-icons'
 import { FileTreeSide } from '.'
 import { Separator } from '..'
-import { FooterItem } from './FooterItem'
+import { FooterItem } from './footerItem'
 
 export function Footer() {
   return (
