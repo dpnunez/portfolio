@@ -7,7 +7,7 @@ import { menu } from '@/constants/data'
 
 export function Header() {
   return (
-    <header className="col-span-4 grid row-span-1 md:grid-cols-editor-desktop">
+    <header className="col-span-4 grid row-span-1 md:grid-cols-editor-desktop max-w-full">
       <FileTreeSide className="flex items-center justify-center border-b dark:border-white/10 border-zinc-500/30 relative">
         <Link href="/">
           <h1 className="text-lg group">
