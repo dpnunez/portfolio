@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Fira_Mono as FontSans } from 'next/font/google'
 import '@/styles/globals.css'
+import '@/styles/prism.css'
 import { Editor } from '@/components'
 import { cn } from '@/lib/utils'
 import { ThemeProvider } from '@/providers/theme-provider'

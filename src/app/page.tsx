@@ -1,5 +1,5 @@
 import { Editor } from '@/components'
-import Link from 'next/link'
+import { PrismLight } from 'react-syntax-highlighter'
 
 export default function Page() {
   return (
@@ -19,19 +19,10 @@ export default function Page() {
           </span>
         </h2>
 
-        <span>
-          {'// '} fell free to access the code of this page in my github
-          <span className="block">
-            <span>const url = </span>
-            <Link
-              className="text-yellow-500"
-              target="_blank"
-              href="https://github.com/dpnunez/portfolio"
-            >
-              {'"'}https://github.com/dpnunez/portfolio{'"'}
-            </Link>
-          </span>
-        </span>
+        <span></span>
+        <PrismLight className="!bg-transparent" language="javascript">
+          {`// fell free to access the code of this page in my github\nconst url = "https://github.com/dpnunez/portfolio"`}
+        </PrismLight>
         <ComputerBackground />
       </div>
     </Editor.CodeSide>
