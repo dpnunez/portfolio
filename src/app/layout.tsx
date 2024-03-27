@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { Fira_Mono as FontSans } from 'next/font/google'
 import '@/styles/globals.css'
-import { Background, Editor } from '@/components'
+import { BackgroundGradient as Background, Editor } from '@/components'
 import { cn } from '@/lib/utils'
 import { ThemeProvider } from '@/providers/theme-provider'
 
@@ -34,13 +34,18 @@ export default function RootLayout({
           defaultTheme="dark"
           disableTransitionOnChange
         >
-          <Background>
+          <div
+            className={cn(
+              'w-full min-h-screen h-full flex items-center justify-center',
+            )}
+          >
+            {/* <Background /> */}
             <Editor.Wrapper>
               <Editor.Header />
               {children}
               <Editor.Footer />
             </Editor.Wrapper>
-          </Background>
+          </div>
         </ThemeProvider>
       </body>
     </html>
