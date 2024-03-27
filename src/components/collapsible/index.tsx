@@ -6,6 +6,12 @@ const Collapsible = CollapsiblePrimitive.Root
 
 const CollapsibleTrigger = CollapsiblePrimitive.CollapsibleTrigger
 
-const CollapsibleContent = CollapsiblePrimitive.CollapsibleContent
+const CollapsibleContent = () => {
+  return (
+    <CollapsiblePrimitive.CollapsibleContent>
+      <div>Collapsible content</div>
+    </CollapsiblePrimitive.CollapsibleContent>
+  )
+}
 
 export { Collapsible, CollapsibleTrigger, CollapsibleContent }
