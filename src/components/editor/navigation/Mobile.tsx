@@ -18,6 +18,7 @@ import {
   CollapsibleTrigger,
 } from '@/components'
 import Link from 'next/link'
+import { FileTreeNavigation } from '.'
 
 function MenuItems({ items }: { items: MenuItem[] }) {
   return (
@@ -65,7 +66,7 @@ export function Mobile() {
           <DrawerHeader>
             <DrawerTitle>Menu Navigation</DrawerTitle>
           </DrawerHeader>
-          <MenuItems items={menu} />
+          <FileTreeNavigation data={menu} />
         </div>
       </DrawerContent>
     </Drawer>

@@ -14,7 +14,7 @@ export function CodeSide({
   return (
     <div
       className={cn(
-        'dark:bg-zinc-900/95 bg-zinc-100/90 hidden md:flex max-w-full overflow-auto',
+        'dark:bg-zinc-900/95 bg-zinc-100/90 max-w-full overflow-auto flex',
         { 'md:col-span-3': !fullSize, 'md:col-span-4': fullSize },
         className,
       )}

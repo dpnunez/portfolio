@@ -21,7 +21,7 @@ export function Header() {
           <Navigation.Mobile />
         </div>
       </FileTreeSide>
-      <CodeSide className="border-b dark:border-white/10 border-zinc-500/30 justify-between">
+      <CodeSide className="border-b dark:border-white/10 border-zinc-500/30 justify-between hidden md:flex">
         <Navigation.Desktop items={menu} />
         <ToggleTheme />
       </CodeSide>
