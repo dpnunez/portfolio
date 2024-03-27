@@ -12,26 +12,14 @@ export const menu: MenuItem[] = [
     href: '/about',
     subItems: [
       {
+        label: 'Profile',
+        name: 'profile.ts',
+        href: '/about/profile',
+      },
+      {
         label: 'Skills',
         name: 'skills.ts',
         href: '/skills',
-        subItems: [
-          {
-            label: 'Languages',
-            name: 'languages.ts',
-            href: '/languages',
-          },
-          {
-            label: 'Frameworks',
-            name: 'frameworks.ts',
-            href: '/frameworks',
-          },
-          {
-            label: 'Tools',
-            name: 'tools.ts',
-            href: '/tools',
-          },
-        ],
       },
       {
         label: 'Experience',
