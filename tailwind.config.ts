@@ -26,10 +26,11 @@ const config = {
     },
     extend: {
       gridTemplateColumns: {
-        editor: '320px 1fr 1fr 1fr',
+        'editor-desktop': '320px 1fr 1fr 1fr',
+        'editor-mobile': '1fr',
       },
       gridTemplateRows: {
-        editor: '52px auto',
+        editor: '52px auto 32px',
       },
       colors: {
         border: 'hsl(var(--border))',

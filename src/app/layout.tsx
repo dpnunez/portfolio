@@ -38,6 +38,7 @@ export default function RootLayout({
             <Editor.Wrapper>
               <Editor.Header />
               {children}
+              <Editor.Footer />
             </Editor.Wrapper>
           </Background>
         </ThemeProvider>
