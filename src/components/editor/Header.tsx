@@ -1,6 +1,6 @@
 import Link from 'next/link'
-import { FileTreeSide } from './FileTreeSide'
-import { CodeSide } from './CodeSide'
+import { FileTreeSide } from './fileTreeSide'
+import { CodeSide } from './codeSide'
 import { ToggleTheme } from '@/components'
 import * as Navigation from './navigation'
 import { menu } from '@/constants/data'
