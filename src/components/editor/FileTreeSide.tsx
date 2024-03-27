@@ -14,7 +14,7 @@ export function FileTreeSide({
   return (
     <div
       className={cn(
-        'md:col-span-1 flex dark:bg-zinc-900/80 bg-zinc-100/80',
+        'md:col-span-1 flex dark:bg-zinc-900/80 bg-zinc-200/70',
         className,
         {
           'md:col-span-1': !fullSize,
