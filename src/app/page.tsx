@@ -1,5 +1,6 @@
-import { Editor } from '@/components'
+import { Ascii, Editor } from '@/components'
 import { PrismLight } from 'react-syntax-highlighter'
+import Link from 'next/link'
 
 export default function Page() {
   return (
@@ -19,51 +20,16 @@ export default function Page() {
           </span>
         </h2>
 
-        <PrismLight
-          className="!bg-transparent hidden md:block"
-          language="javascript"
-        >
-          {`// fell free to access the code of this page in my github\nconst url = "https://github.com/dpnunez/portfolio"`}
-        </PrismLight>
-        <ComputerBackground />
+        <Link target="_blank" href="https://github.com/dpnunez/portfolio">
+          <PrismLight
+            className="!bg-transparent hidden md:block"
+            language="javascript"
+          >
+            {`// fell free to access the code of this page in my github\nconst url = "https://github.com/dpnunez/portfolio"`}
+          </PrismLight>
+        </Link>
+        <Ascii.ComputerBackground className="absolute top-0 left-0 opacity-5 max-w-full max-h-full" />
       </div>
     </Editor.CodeSide>
-  )
-}
-
-function ComputerBackground() {
-  return (
-    <pre className="absolute text-2xl top-0 left-0 opacity-5 pointer-events-none max-w-full max-h-full">
-      {`.,,uod8B8bou,,.
-              ..,uod8BBBBBBBBBBBBBBBBRPFT?l!i:.
-         ,=m8BBBBBBBBBBBBBBBRPFT?!||||||||||||||
-         !...:!TVBBBRPFT||||||||||!!^^""'   ||||
-         !.......:!?|||||!!^^""'            ||||
-         !.........||||                     ||||
-         !.........||||                     ||||
-         !.........||||                     ||||
-         !.........||||                     ||||
-         !.........||||                     ||||
-         !.........||||                     ||||
-         '.........||||                    ,||||
-          .;.......||||               _.-!!|||||
-   .,uodWBBBBb.....||||       _.-!!|||||||||!:'
-!YBBBBBBBBBBBBBBb..!|||:..-!!|||||||!iof68BBBBBb....
-!..YBBBBBBBBBBBBBBb!!||||||||!iof68BBBBBBRPFT?!::   '.
-!....YBBBBBBBBBBBBBBbaaitf68BBBBBBRPFT?!:::::::::     '.
-!......YBBBBBBBBBBBBBBBBBBBRPFT?!::::::;:!^"';:::       '.
-!........YBBBBBBBBBBRPFT?!::::::::::^''...::::::;         iBBbo.
-'..........YBRPFT?!::::::::::::::::::::::::;iof68bo.      WBBBBbo.
-  '..........:::::::::::::::::::::::;iof688888888888b.     'YBBBP^'
-    '........::::::::::::::::;iof688888888888888888888b.     '
-      '......:::::::::;iof688888888888888888888888888888b.
-        '....:::;iof688888888888888888888888888888888899fT!
-          '..::!8888888888888888888888888888888899fT|!^"'
-            '' !!988888888888888888888888899fT|!^"'
-                '!!8888888888888888899fT|!^"'
-                  '!988888888899fT|!^"'
-                    '!9899fT|!^"'
-                      '!^"'`}
-    </pre>
   )
 }
