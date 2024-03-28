@@ -8,28 +8,28 @@ interface MenuItem {
 export const menu: MenuItem[] = [
   {
     label: 'About',
-    name: 'about.ts',
+    name: './about',
     href: '/about',
     subItems: [
       {
         label: 'Profile',
         name: 'profile.ts',
-        href: '/about/profile',
+        href: '/about/profile.ts',
       },
       {
         label: 'Skills',
         name: 'skills.ts',
-        href: '/skills',
+        href: '/about/skills.ts',
       },
       {
         label: 'Experience',
         name: 'experience.ts',
-        href: '/experience',
+        href: '/about/experience.ts',
       },
       {
         label: 'Education',
         name: 'education.ts',
-        href: '/education',
+        href: '/about/education.ts',
       },
     ],
   },
