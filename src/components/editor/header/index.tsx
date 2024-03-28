@@ -1,14 +1,11 @@
 import Link from 'next/link'
-import { FileTreeSide } from './fileTreeSide'
-import { CodeSide } from './codeSide'
-import { ToggleTheme } from '@/components'
-import * as Navigation from './navigation'
+import { ToggleTheme, Editor } from '@/components'
 import { menu } from '@/constants/data'
 
 export function Header() {
   return (
     <header className="col-span-4 grid row-span-1 md:grid-cols-editor-desktop max-w-full">
-      <FileTreeSide className="flex items-center justify-center border-b dark:border-white/10 border-zinc-500/30 relative">
+      <Editor.FileTreeSide className="flex items-center justify-center border-b dark:border-white/10 border-zinc-500/30 relative">
         <Link href="/">
           <h1 className="text-lg group">
             <span className="text-pink-500 font-bold">whoami</span>
@@ -18,13 +15,13 @@ export function Header() {
           </h1>
         </Link>
         <div className="md:hidden absolute right-4">
-          <Navigation.Mobile />
+          <Editor.Navigation.Mobile />
         </div>
-      </FileTreeSide>
-      <CodeSide className="border-b dark:border-white/10 border-zinc-500/30 justify-between hidden md:flex">
-        <Navigation.Desktop items={menu} />
+      </Editor.FileTreeSide>
+      <Editor.CodeSide className="border-b dark:border-white/10 border-zinc-500/30 justify-between hidden md:flex">
+        <Editor.Navigation.Desktop items={menu} />
         <ToggleTheme />
-      </CodeSide>
+      </Editor.CodeSide>
     </header>
   )
 }

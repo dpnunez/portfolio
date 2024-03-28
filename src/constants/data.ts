@@ -9,7 +9,7 @@ export const menu: MenuItem[] = [
   {
     label: 'About',
     name: './about',
-    href: '/about',
+    href: '/about/profile.ts',
     subItems: [
       {
         label: 'Profile',

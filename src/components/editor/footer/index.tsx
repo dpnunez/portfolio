@@ -3,13 +3,12 @@ import {
   ExclamationTriangleIcon,
   GitHubLogoIcon,
 } from '@radix-ui/react-icons'
-import { FileTreeSide } from '.'
-import { Separator } from '..'
+import { Editor, Separator } from '@/components'
 import { FooterItem } from './footerItem'
 
 export function Footer() {
   return (
-    <FileTreeSide
+    <Editor.FileTreeSide
       className="border-t dark:border-white/10 border-zinc-500/30 items-center row-start-3 flex"
       fullSize
     >
@@ -27,6 +26,6 @@ export function Footer() {
         </FooterItem>
         <Separator orientation="vertical" />
       </div>
-    </FileTreeSide>
+    </Editor.FileTreeSide>
   )
 }
