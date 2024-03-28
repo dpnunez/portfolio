@@ -12,7 +12,6 @@ interface DesktopNavigationProps {
 export function Desktop({ items }: DesktopNavigationProps) {
   return (
     <nav className="flex items-center h-full overflow-auto">
-      <Separator orientation="vertical" />
       {items.map((item, index) => (
         <MenuItem key={index} href={item.href}>
           {item.name}

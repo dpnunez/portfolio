@@ -114,8 +114,22 @@ const config = {
             transform: 'translateY(-50%)',
           },
         },
+        openFile: {
+          '0%': {
+            transform: 'rotateX(10deg) translateY(50px)',
+            opacity: '0',
+          },
+          '20%': {
+            opacity: '0',
+          },
+          '100%': {
+            opacity: '1',
+            transform: 'rotateX(0deg) translateY(0)',
+          },
+        },
       },
       animation: {
+        'open-file': 'openFile 0.5s ease-out',
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
         first: 'moveVertical 30s ease infinite',
