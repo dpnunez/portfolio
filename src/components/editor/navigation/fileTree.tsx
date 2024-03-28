@@ -1,8 +1,10 @@
 'use client'
 
 import { Separator } from '@/components'
+import { cn } from '@/lib/utils'
 import { AnimatePresence, motion, MotionProps } from 'framer-motion'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import React from 'react'
 import { FaChevronDown, FaFile, FaFolder, FaFolderOpen } from 'react-icons/fa'
 
@@ -15,6 +17,7 @@ interface NavigationItemProps extends MotionProps {
   len: number
   children: React.ReactNode
   onClick?: () => void
+  href?: string
   className?: string
 }
 
@@ -22,11 +25,25 @@ interface NavigationFolderProps extends NavigationItemProps {
   data: MenuItem[]
 }
 
-function NavigationItem({ children, idx, len, ...props }: NavigationItemProps) {
+function NavigationItem({
+  children,
+  idx,
+  len,
+  href,
+  ...props
+}: NavigationItemProps) {
   const Element = props.onClick ? motion.button : motion.div
+  const path = usePathname()
+  const active = path === href
+
   return (
     <Element
-      className="cursor-pointer flex gap-2 items-center select-none mx-4 flex-1 hover:bg-foreground/5 transition-colors rounded-md my-1"
+      className={cn(
+        'cursor-pointer flex gap-2 items-center select-none mx-4 flex-1 hover:bg-foreground/5 transition-colors rounded-md my-1',
+        {
+          'bg-foreground/5': active,
+        },
+      )}
       {...props}
       initial={{
         opacity: 0,
@@ -102,7 +119,7 @@ export function FileTreeNavigation({ data }: FileTreeData) {
 
     return (
       <Link key={item.name} href={item.href}>
-        <NavigationItem idx={i} len={data.length}>
+        <NavigationItem href={item.href} idx={i} len={data.length}>
           <FaFile />
           {item.name}
         </NavigationItem>
@@ -122,6 +139,7 @@ export function FileTreePanelCollapse({
   defaultOpen = true,
 }: PanelProps) {
   const [open, setOpen] = React.useState(defaultOpen)
+
   return (
     <>
       <button
