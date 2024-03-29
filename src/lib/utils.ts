@@ -6,11 +6,12 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }
 
-export const anim = (
-  variants: AnimVariants,
-  custom: number | null = null,
-  rest: MotionProps,
-) => {
+interface AnimProps extends MotionProps {
+  variants: AnimVariants
+  custom?: number | boolean | string
+}
+
+export const anim = ({ variants, custom, ...rest }: AnimProps) => {
   return {
     initial: 'initial',
     animate: 'enter',

@@ -6,7 +6,7 @@ declare type MenuItem = {
 }
 
 declare type AnimVariants = {
-  initial: import('framer-motion').Target
-  animate: import('framer-motion').TargetAndTransition
-  exit: import('framer-motion').TargetAndTransition
+  initial?: import('framer-motion').Variant
+  enter: import('framer-motion').Variant
+  exit?: import('framer-motion').Variant
 }

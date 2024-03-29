@@ -1,12 +1,13 @@
 'use client'
 
 import { Separator } from '@/components'
-import { cn } from '@/lib/utils'
+import { anim, cn } from '@/lib/utils'
 import { AnimatePresence, motion, MotionProps } from 'framer-motion'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import React from 'react'
 import { FaChevronDown, FaFile, FaFolder, FaFolderOpen } from 'react-icons/fa'
+import { containerAnim, folderAnim, panelAnim } from './anim'
 
 interface FileTreeData {
   data: MenuItem[]
@@ -83,15 +84,7 @@ function NavigationFolder({ children, data, ...props }: NavigationFolderProps) {
           {open && (
             <motion.div
               className="overflow-hidden"
-              initial={{
-                height: 0,
-              }}
-              animate={{
-                height: 'auto',
-              }}
-              exit={{
-                height: 0,
-              }}
+              {...anim({ variants: folderAnim })}
             >
               <FileTreeNavigation data={data} />
             </motion.div>
@@ -148,17 +141,7 @@ export function FileTreePanelCollapse({
         onClick={() => setOpen(!open)}
       >
         {title}
-        <motion.div
-          animate={
-            open
-              ? {
-                  rotate: 180,
-                }
-              : {
-                  rotate: 0,
-                }
-          }
-        >
+        <motion.div {...anim({ variants: panelAnim, custom: open })}>
           <FaChevronDown />
         </motion.div>
       </button>
@@ -167,18 +150,9 @@ export function FileTreePanelCollapse({
         {open && (
           <motion.div
             className="overflow-hidden flex flex-col"
-            initial={{
-              height: 0,
-            }}
-            animate={{
-              height: 'auto',
-            }}
-            exit={{
-              height: 0,
-              transition: {
-                delay: 0.1,
-              },
-            }}
+            {...anim({
+              variants: containerAnim,
+            })}
           >
             <FileTreeNavigation data={data} />
           </motion.div>
