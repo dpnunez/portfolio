@@ -116,7 +116,7 @@ const config = {
         },
         openFile: {
           '0%': {
-            transform: 'rotateX(10deg) translateY(50px)',
+            transform: 'translateY(50px)',
             opacity: '0',
           },
           '20%': {
@@ -124,7 +124,7 @@ const config = {
           },
           '100%': {
             opacity: '1',
-            transform: 'rotateX(0deg) translateY(0)',
+            transform: 'translateY(0)',
           },
         },
       },

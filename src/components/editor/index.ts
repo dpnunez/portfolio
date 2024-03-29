@@ -1,7 +1,7 @@
 export * from './wrapper'
 export * from './header'
 export * from './sides'
-export * from './sides/codeSide'
 export * from './footer'
+export * from './loading'
 export * from './enterCodeAnimationWrapper'
 export * as Navigation from './navigation'
