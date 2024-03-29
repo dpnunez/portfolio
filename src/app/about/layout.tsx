@@ -2,7 +2,7 @@ import { Editor } from '@/components'
 import { menu } from '@/constants/data'
 
 export default function Layout({ children }: { children: React.ReactNode }) {
-  const subitems = menu.find((item) => item.name === './about')?.subItems ?? []
+  const subitems = menu.find((item) => item.name === '/about')?.subItems ?? []
   return (
     <>
       <Editor.FileTreeSide className="flex-col">

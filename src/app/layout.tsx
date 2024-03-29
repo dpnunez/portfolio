@@ -5,6 +5,7 @@ import '@/styles/prism.css'
 import { Editor } from '@/components'
 import { cn } from '@/lib/utils'
 import { ThemeProvider } from '@/providers/theme-provider'
+import { FramerGlobalConfig } from '@/providers/framer-provider'
 
 const fontSans = FontSans({
   weight: ['400', '500', '700'],
@@ -30,23 +31,25 @@ export default function RootLayout({
           fontSans.variable,
         )}
       >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"
-          disableTransitionOnChange
-        >
-          <div
-            className={cn(
-              'w-full min-h-screen h-full flex items-center justify-center',
-            )}
+        <FramerGlobalConfig>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="dark"
+            disableTransitionOnChange
           >
-            <Editor.Wrapper>
-              <Editor.Header />
-              {children}
-              <Editor.Footer />
-            </Editor.Wrapper>
-          </div>
-        </ThemeProvider>
+            <div
+              className={cn(
+                'w-full min-h-screen h-full flex items-center justify-center',
+              )}
+            >
+              <Editor.Wrapper>
+                <Editor.Header />
+                {children}
+                <Editor.Footer />
+              </Editor.Wrapper>
+            </div>
+          </ThemeProvider>
+        </FramerGlobalConfig>
       </body>
     </html>
   )
