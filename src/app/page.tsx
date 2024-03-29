@@ -1,6 +1,7 @@
-import { Ascii, Editor } from '@/components'
+import { ASCII, Editor } from '@/components'
 import { PrismLight } from 'react-syntax-highlighter'
 import Link from 'next/link'
+import { computerAscii } from '@/constants/ascii'
 
 export default function Page() {
   return (
@@ -28,7 +29,9 @@ export default function Page() {
             {`// fell free to access the code of this page in my github\nconst url = "https://github.com/dpnunez/portfolio"`}
           </PrismLight>
         </Link>
-        <Ascii.ComputerBackground className="absolute top-0 left-0 opacity-5 max-w-full max-h-full" />
+        <ASCII className="absolute top-0 left-0 opacity-5 max-w-full max-h-full">
+          {computerAscii}
+        </ASCII>
       </div>
     </Editor.CodeSide>
   )
