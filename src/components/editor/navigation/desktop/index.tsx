@@ -3,7 +3,10 @@
 import Link from 'next/link'
 import { Separator } from '@/components'
 import { usePathname } from 'next/navigation'
-import { cn } from '@/lib/utils'
+import { anim, cn } from '@/lib/utils'
+import { useState } from 'react'
+import { motion } from 'framer-motion'
+import { indicator } from './anim'
 
 interface DesktopNavigationProps {
   items: MenuItem[]
@@ -13,7 +16,7 @@ export function Desktop({ items }: DesktopNavigationProps) {
   return (
     <nav className="flex items-center h-full overflow-auto">
       {items.map((item, index) => (
-        <MenuItem key={index} href={item.href}>
+        <MenuItem key={index} href={item.href} name={item.name}>
           {item.name}
         </MenuItem>
       ))}
@@ -24,26 +27,42 @@ export function Desktop({ items }: DesktopNavigationProps) {
 function MenuItem({
   href,
   children,
+  name,
 }: {
   href: string
   children: React.ReactNode
+  name: string
 }) {
+  const [hover, setHover] = useState(false)
   const pathname = usePathname()
-  const isActive = pathname.includes(href)
+  const isActive = pathname.includes(name)
 
   return (
     <>
-      <Link
-        className={cn(
-          'opacity-60 transition-opacity duration-200 hover:opacity-100 px-6',
-          {
-            'opacity-100': isActive,
-          },
-        )}
-        href={href}
+      <motion.div
+        className="relative overflow-hidden h-full flex items-center"
+        onHoverStart={() => setHover(true)}
+        onHoverEnd={() => setHover(false)}
       >
-        {children}
-      </Link>
+        <Link
+          className={cn(
+            'opacity-60 transition-opacity duration-200 hover:opacity-100 px-6',
+            {
+              'opacity-100': isActive,
+            },
+          )}
+          href={href}
+        >
+          {children}
+        </Link>
+        <motion.div
+          className="bg-slate-100 h-[1px] w-full absolute bottom-0"
+          {...anim({
+            variants: indicator,
+            custom: hover || isActive,
+          })}
+        />
+      </motion.div>
       <Separator orientation="vertical" />
     </>
   )

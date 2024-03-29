@@ -8,7 +8,7 @@ interface MenuItem {
 export const menu: MenuItem[] = [
   {
     label: 'About',
-    name: './about',
+    name: '/about',
     href: '/about/profile.ts',
     subItems: [
       {
