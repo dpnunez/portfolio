@@ -14,7 +14,7 @@ import {
   Textarea,
 } from '@/components'
 import { contactData } from '@/constants/content'
-import { contactSchema } from '@/validation'
+import { contactSchema } from '@/validations'
 import { SiTypescript } from 'react-icons/si'
 import { useForm, useFormContext } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
