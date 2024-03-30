@@ -3,6 +3,8 @@ declare type MenuItem = {
   name: string
   href: string
   subItems?: MenuItem[]
+  Icon?: React.ReactNode
+  target?: string
 }
 
 declare type AnimVariants = {

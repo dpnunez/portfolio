@@ -111,9 +111,9 @@ export function FileTreeNavigation({ data }: FileTreeData) {
     }
 
     return (
-      <Link key={item.name} href={item.href}>
+      <Link key={item.name} href={item.href} target={item.target}>
         <NavigationItem href={item.href} idx={i} len={data.length}>
-          <FaFile />
+          {item.Icon ?? <FaFile />}
           {item.name}
         </NavigationItem>
       </Link>

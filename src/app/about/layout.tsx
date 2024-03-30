@@ -5,7 +5,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   const subitems = menu.find((item) => item.name === '/about')?.subItems ?? []
   return (
     <>
-      <Editor.FileTreeSide className="flex-col">
+      <Editor.FileTreeSide>
         <Editor.Navigation.FileTreePanelCollapse
           defaultOpen={true}
           title="About"

@@ -1,9 +1,6 @@
-interface MenuItem {
-  label: string
-  name: string
-  href: string
-  subItems?: MenuItem[]
-}
+import React from 'react'
+import { FaGithubSquare, FaLinkedin } from 'react-icons/fa'
+import { MdOutlineAlternateEmail } from 'react-icons/md'
 
 export const menu: MenuItem[] = [
   {
@@ -45,7 +42,30 @@ export const menu: MenuItem[] = [
   },
   {
     label: 'Contact',
-    name: 'contact.sql',
+    name: '/contact.sql',
     href: '/contact',
+    subItems: [
+      {
+        label: 'Email',
+        name: 'Email',
+        href: 'mailto:daniel.portonunez@gmail.com',
+        Icon: <MdOutlineAlternateEmail />,
+        target: '_blank',
+      },
+      {
+        label: 'Github',
+        name: 'github',
+        href: 'https://github.com/dpnunez',
+        Icon: <FaGithubSquare />,
+        target: '_blank',
+      },
+      {
+        label: 'LinkedIn',
+        name: 'linkedin',
+        href: 'https://www.linkedin.com/in/daniel-porto-nunez/',
+        Icon: <FaLinkedin />,
+        target: '_blank',
+      },
+    ],
   },
 ]
