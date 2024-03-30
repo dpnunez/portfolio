@@ -33,14 +33,16 @@ export function ContactForm() {
   })
 
   return (
-    <Editor.EnterCode className="mx-10">
-      <h1 className="text-3xl font-bold mb-8">Send me a message</h1>
+    <Editor.EnterCode className="m-10">
+      <h1 className="text-xl md:text-3xl font-bold mb-8">
+        # Send me a message
+      </h1>
       <Form {...methods}>
         <div className="flex w-full">
           <div className="flex-1">
             <FormSection />
           </div>
-          <div className="flex-1">
+          <div className="flex-1 md:block hidden">
             <ReqViwer />
           </div>
         </div>
@@ -99,7 +101,7 @@ function FormSection() {
         )}
       />
 
-      <Button type="submit" size="lg" className="mt-4 self-end">
+      <Button type="submit" size="lg" className="mt-4 md:self-end">
         $send_message
       </Button>
     </form>
