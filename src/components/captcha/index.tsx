@@ -1,28 +1,26 @@
-'use client'
-import { useScript } from '@/hooks'
-import { Dispatch, SetStateAction, useEffect } from 'react'
+import Script from 'next/script'
+import { Dispatch, SetStateAction } from 'react'
 
 interface CaptchaProps {
   onChange: Dispatch<SetStateAction<boolean>>
 }
 
 export function Captcha({ onChange }: CaptchaProps) {
-  const status = useScript(
-    'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit',
+  return (
+    <>
+      <Script
+        src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit"
+        onLoad={() => {
+          window.turnstile.render('#captcha-cf', {
+            sitekey: process.env.NEXT_PUBLIC_TURNSFILE_CLIENT_KEY,
+            callback: async function (token: string) {
+              console.log(`Challenge Success ${token}`)
+            },
+            size: 'normal',
+          })
+        }}
+      />
+      <div id="captcha-cf" />
+    </>
   )
-
-  useEffect(() => {
-    if (status === 'ready') {
-      window.turnstile.render('#captcha-cf', {
-        sitekey: process.env.NEXT_PUBLIC_TURNSFILE_CLIENT_KEY,
-        callback: async function (token: string) {
-          console.log(`Challenge Success ${token}`)
-          // siteverify request
-        },
-        size: 'normal',
-      })
-    }
-  }, [status])
-
-  return <div id="captcha-cf" />
 }
