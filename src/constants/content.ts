@@ -86,3 +86,34 @@ const timeline = [
   }
 ]`,
 }
+
+export const contactData = {
+  req: (
+    name: string,
+    email: string,
+    message: string,
+  ) => `function ContactForm() {
+  const methods = useForm<Schema>();
+
+  const onSubmit = async (data: Schema) => {
+    try {
+      await axios.post('/api/contact', {
+        name: "${name}",
+        email: "${email}",
+        message: "${message}"
+      })
+
+      alert("Message sent!")
+    } catch (error) {
+      // Press F to my form (and send a sentry report)
+    }
+  }
+
+  return (
+    <form onSubmit={methods.handleSubmit(onSubmit)}>
+      {/* inputs */}
+      <Button type="submit">Send</Button>
+    </form>
+  )
+}`,
+}

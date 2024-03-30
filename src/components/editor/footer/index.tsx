@@ -9,7 +9,7 @@ import { FooterItem } from './footerItem'
 export function Footer() {
   return (
     <Editor.FileTreeSide
-      className="border-t dark:border-white/10 border-zinc-500/30 items-center row-start-3 flex"
+      className="border-t dark:border-white/10 border-zinc-500/30 row-start-3 flex items-start"
       fullSize
     >
       <div className="flex items-center h-full">
