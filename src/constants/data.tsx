@@ -1,6 +1,7 @@
 import React from 'react'
 import { FaGithubSquare, FaLinkedin } from 'react-icons/fa'
 import { MdOutlineAlternateEmail } from 'react-icons/md'
+import { SiTypescript } from 'react-icons/si'
 
 export const menu: MenuItem[] = [
   {
@@ -45,6 +46,12 @@ export const menu: MenuItem[] = [
     name: '/contact',
     href: '/contact',
     subItems: [
+      {
+        label: 'Form',
+        name: 'form.ts',
+        href: '/contact',
+        Icon: <SiTypescript />,
+      },
       {
         label: 'Email',
         name: 'Email',
