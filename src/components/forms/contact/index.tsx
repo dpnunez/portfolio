@@ -2,6 +2,7 @@
 
 import {
   Button,
+  Captcha,
   CodeSnippet,
   Editor,
   Form,
@@ -19,6 +20,7 @@ import { SiTypescript } from 'react-icons/si'
 import { useForm, useFormContext } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import * as z from 'zod'
+import { useState } from 'react'
 
 type Schema = z.infer<typeof contactSchema>
 
@@ -52,9 +54,11 @@ export function ContactForm() {
 }
 
 function FormSection() {
+  const [passCaptcha, setPassCaptcha] = useState(false)
   const form = useFormContext<Schema>()
   const onSubmit = form.handleSubmit((values) => {
     console.log(values)
+    console.log(passCaptcha)
   })
 
   return (
@@ -101,9 +105,13 @@ function FormSection() {
         )}
       />
 
-      <Button type="submit" size="lg" className="mt-4 md:self-end">
-        $send_message
-      </Button>
+      <div className="flex justify-between w-full">
+        <Captcha onChange={setPassCaptcha} />
+
+        <Button type="submit" size="lg" className="mt-4">
+          $send_message
+        </Button>
+      </div>
     </form>
   )
 }

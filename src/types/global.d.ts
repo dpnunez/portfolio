@@ -12,3 +12,17 @@ declare type AnimVariants = {
   enter: import('framer-motion').Variant
   exit?: import('framer-motion').Variant
 }
+
+interface turnstileOpts {
+  sitekey: string
+  callback: (token: string) => void
+}
+declare global {
+  interface Window {
+    turnstile: {
+      render: (containerQuery: string, turnstileOpts) => void
+    }
+  }
+}
+
+export {}
