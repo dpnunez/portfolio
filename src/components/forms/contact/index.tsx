@@ -21,6 +21,8 @@ import { useForm, useFormContext } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import * as z from 'zod'
 import { useState } from 'react'
+import { toast } from 'sonner'
+import { api } from '@/lib/api'
 
 type Schema = z.infer<typeof contactSchema>
 
@@ -54,11 +56,23 @@ export function ContactForm() {
 }
 
 function FormSection() {
-  const [passCaptcha, setPassCaptcha] = useState(false)
+  const [tokenCaptcha, setTokenCaptcha] = useState('')
+
   const form = useFormContext<Schema>()
-  const onSubmit = form.handleSubmit((values) => {
-    console.log(values)
-    console.log(passCaptcha)
+
+  const onSubmit = form.handleSubmit(async (values) => {
+    try {
+      await api.post('api/contact', {
+        json: {
+          ...values,
+          captcha_token: tokenCaptcha,
+        },
+      })
+
+      toast.success('Message sent successfully.')
+    } catch (err) {
+      toast.error(err as string)
+    }
   })
 
   return (
@@ -106,9 +120,15 @@ function FormSection() {
       />
 
       <div className="flex justify-between w-full">
-        <Captcha onChange={setPassCaptcha} />
+        <Captcha onChange={setTokenCaptcha} />
 
-        <Button type="submit" size="lg" className="mt-4">
+        <Button
+          type="submit"
+          size="lg"
+          className="mt-4"
+          disabled={!tokenCaptcha}
+          loading={form.formState.isSubmitting}
+        >
           $send_message
         </Button>
       </div>

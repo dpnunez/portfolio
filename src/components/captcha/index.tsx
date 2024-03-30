@@ -2,7 +2,7 @@ import Script from 'next/script'
 import { Dispatch, SetStateAction } from 'react'
 
 interface CaptchaProps {
-  onChange: Dispatch<SetStateAction<boolean>>
+  onChange: Dispatch<SetStateAction<string>>
 }
 
 export function Captcha({ onChange }: CaptchaProps) {
@@ -13,9 +13,7 @@ export function Captcha({ onChange }: CaptchaProps) {
         onLoad={() => {
           window.turnstile.render('#captcha-cf', {
             sitekey: process.env.NEXT_PUBLIC_TURNSFILE_CLIENT_KEY,
-            callback: async function (token: string) {
-              console.log(`Challenge Success ${token}`)
-            },
+            callback: onChange,
             size: 'normal',
           })
         }}
