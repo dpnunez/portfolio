@@ -8,7 +8,8 @@ export function cn(...inputs: ClassValue[]) {
 
 interface AnimProps extends MotionProps {
   variants: AnimVariants
-  custom?: number | boolean | string
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  custom?: any
 }
 
 export const anim = ({ variants, custom, ...rest }: AnimProps) => {

@@ -7,7 +7,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import React from 'react'
 import { FaChevronDown, FaFile, FaFolder, FaFolderOpen } from 'react-icons/fa'
-import { containerAnim, folderAnim, panelAnim } from './anim'
+import { containerAnim, folderAnim, navigationItem, panelAnim } from './anim'
 
 interface FileTreeData {
   data: MenuItem[]
@@ -40,30 +40,13 @@ function NavigationItem({
   return (
     <Element
       className={cn(
-        'cursor-pointer flex gap-2 items-center select-none mx-4 flex-1 hover:bg-foreground/5 transition-colors rounded-md my-1',
+        'cursor-pointer flex gap-2 items-center select-none px-4 flex-1 hover:bg-foreground/5 transition-colors my-[2px] py-1',
         {
           'bg-foreground/5': active,
         },
       )}
       {...props}
-      initial={{
-        opacity: 0,
-        x: -10,
-      }}
-      animate={{
-        opacity: 1,
-        x: 0,
-        transition: {
-          duration: 0.1 * idx + 0.2,
-        },
-      }}
-      exit={{
-        opacity: 0,
-        x: -10,
-        transition: {
-          duration: 0.1 * (len - idx),
-        },
-      }}
+      {...anim({ variants: navigationItem, custom: { idx, len } })}
     >
       {children}
     </Element>
@@ -146,7 +129,7 @@ export function FileTreePanelCollapse({
         </motion.div>
       </button>
       {open && <Separator />}
-      <AnimatePresence>
+      <AnimatePresence initial={false} mode="sync">
         {open && (
           <motion.div
             className="overflow-hidden flex flex-col"
@@ -154,7 +137,9 @@ export function FileTreePanelCollapse({
               variants: containerAnim,
             })}
           >
-            <FileTreeNavigation data={data} />
+            <AnimatePresence>
+              <FileTreeNavigation data={data} />
+            </AnimatePresence>
           </motion.div>
         )}
       </AnimatePresence>
