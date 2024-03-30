@@ -11,11 +11,7 @@ export function CodeSnippet({
   language = 'javascript',
 }: CodeSnippetProps) {
   return (
-    <PrismLight
-      showLineNumbers
-      className="!bg-transparent mx-2"
-      language={language}
-    >
+    <PrismLight showLineNumbers className="!bg-transparent" language={language}>
       {children}
     </PrismLight>
   )
