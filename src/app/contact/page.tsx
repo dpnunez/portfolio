@@ -3,7 +3,7 @@ import { CodeSide, FileTreeSide } from '@/components/editor'
 import { menu } from '@/constants/data'
 
 export default function Page() {
-  const files = menu.find((e) => e.name === '/contact.sql')?.subItems ?? []
+  const files = menu.find((e) => e.name === '/contact')?.subItems ?? []
 
   return (
     <>

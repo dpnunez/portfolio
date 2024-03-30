@@ -42,7 +42,7 @@ export const menu: MenuItem[] = [
   },
   {
     label: 'Contact',
-    name: '/contact.sql',
+    name: '/contact',
     href: '/contact',
     subItems: [
       {
