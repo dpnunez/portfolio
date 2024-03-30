@@ -1,7 +1,7 @@
 import z from 'zod'
 
 export const contactSchema = z.object({
-  name: z.string().nonempty(),
+  name: z.string().min(3, 'Required field'),
   email: z.string().email(),
-  message: z.string().nonempty(),
+  message: z.string().min(3, 'Required field'),
 })

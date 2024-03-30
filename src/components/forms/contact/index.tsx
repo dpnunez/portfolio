@@ -1,16 +1,30 @@
 'use client'
 
-import { CodeSnippet, Editor } from '@/components'
+import {
+  Button,
+  CodeSnippet,
+  Editor,
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+  Input,
+  Textarea,
+} from '@/components'
 import { contactData } from '@/constants/content'
 import { contactSchema } from '@/validation'
 import { SiTypescript } from 'react-icons/si'
-import { useForm, FormProvider, useFormContext } from 'react-hook-form'
+import { useForm, useFormContext } from 'react-hook-form'
+import { zodResolver } from '@hookform/resolvers/zod'
 import * as z from 'zod'
 
 type Schema = z.infer<typeof contactSchema>
 
 export function ContactForm() {
   const methods = useForm<Schema>({
+    resolver: zodResolver(contactSchema),
     defaultValues: {
       name: '',
       email: '',
@@ -21,22 +35,75 @@ export function ContactForm() {
   return (
     <Editor.EnterCode className="mx-10">
       <h1 className="text-3xl font-bold mb-8">Send me a message</h1>
-      <FormProvider {...methods}>
+      <Form {...methods}>
         <div className="flex w-full">
           <div className="flex-1">
-            <Form />
+            <FormSection />
           </div>
           <div className="flex-1">
             <ReqViwer />
           </div>
         </div>
-      </FormProvider>
+      </Form>
     </Editor.EnterCode>
   )
 }
 
-function Form() {
-  return <div>form</div>
+function FormSection() {
+  const form = useFormContext<Schema>()
+  const onSubmit = form.handleSubmit((values) => {
+    console.log(values)
+  })
+
+  return (
+    <form onSubmit={onSubmit} className="md:mr-24 gap-6 flex flex-col">
+      <FormField
+        control={form.control}
+        name="name"
+        render={({ field }) => (
+          <FormItem>
+            <FormLabel>_name</FormLabel>
+            <FormControl>
+              <Input {...field} />
+            </FormControl>
+            <FormMessage />
+          </FormItem>
+        )}
+      />
+
+      <FormField
+        control={form.control}
+        name="email"
+        render={({ field }) => (
+          <FormItem>
+            <FormLabel>_email</FormLabel>
+            <FormControl>
+              <Input {...field} />
+            </FormControl>
+            <FormMessage />
+          </FormItem>
+        )}
+      />
+
+      <FormField
+        control={form.control}
+        name="message"
+        render={({ field }) => (
+          <FormItem>
+            <FormLabel>_message</FormLabel>
+            <FormControl>
+              <Textarea rows={5} {...field} />
+            </FormControl>
+            <FormMessage />
+          </FormItem>
+        )}
+      />
+
+      <Button type="submit" size="lg" className="mt-4 self-end">
+        $send_message
+      </Button>
+    </form>
+  )
 }
 
 function ReqViwer() {
