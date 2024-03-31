@@ -75,8 +75,6 @@ function FormSection() {
     }
   })
 
-  console.log('ENV', process.env.NEXT_PUBLIC_EMAIL)
-
   return (
     <form onSubmit={onSubmit} className="md:mr-24 gap-6 flex flex-col">
       <FormField
@@ -121,7 +119,7 @@ function FormSection() {
         )}
       />
 
-      <div className="flex justify-between w-full">
+      <div className="flex justify-between w-full items-end">
         <Captcha onChange={setTokenCaptcha} />
 
         <Button
