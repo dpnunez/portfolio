@@ -13,7 +13,7 @@ export async function POST(req: Request) {
       },
     })
 
-    transporter.sendMail({
+    await transporter.sendMail({
       from: process.env.NEXT_PUBLIC_EMAIL,
       to: process.env.NEXT_PUBLIC_EMAIL,
       subject: '[Portfolio] Contact form submission',
