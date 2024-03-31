@@ -7,7 +7,7 @@ export async function POST(req: Request) {
   const data: ContactFormBody = await req.json()
 
   try {
-    await api.post(process.env.URL + '/api/captcha', {
+    await api.post('api/captcha', {
       json: {
         token: data.captcha_token,
       },
