@@ -44,7 +44,7 @@ export const menu: MenuItem[] = [
   {
     label: 'Contact',
     name: '/contact',
-    href: '/contact',
+    href: '/contact/form.ts',
     subItems: [
       {
         label: 'Form',
