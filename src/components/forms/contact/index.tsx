@@ -75,6 +75,8 @@ function FormSection() {
     }
   })
 
+  console.log('ENV', process.env.NEXT_PUBLIC_EMAIL)
+
   return (
     <form onSubmit={onSubmit} className="md:mr-24 gap-6 flex flex-col">
       <FormField
