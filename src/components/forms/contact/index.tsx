@@ -115,7 +115,7 @@ function FormSection() {
           <FormItem>
             <FormLabel>_message</FormLabel>
             <FormControl>
-              <Textarea rows={5} {...field} />
+              <Textarea rows={5} maxLength={280} {...field} />
             </FormControl>
             <FormMessage />
           </FormItem>
