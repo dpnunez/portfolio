@@ -69,6 +69,7 @@ function FormSection() {
         },
       })
 
+      form.reset()
       toast.success('Message sent successfully.')
     } catch (err) {
       toast.error(err as string)
@@ -119,13 +120,13 @@ function FormSection() {
         )}
       />
 
-      <div className="flex justify-between w-full items-end">
+      <div className="flex justify-between w-full items-end flex-col md:flex-row">
         <Captcha onChange={setTokenCaptcha} />
 
         <Button
           type="submit"
           size="lg"
-          className="mt-4"
+          className="mt-4 max-lg:w-full"
           disabled={!tokenCaptcha}
           loading={form.formState.isSubmitting}
         >

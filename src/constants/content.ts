@@ -97,10 +97,12 @@ export const contactData = {
 
   const onSubmit = async (data: Schema) => {
     try {
-      await axios.post('/api/contact', {
-        name: "${name}",
-        email: "${email}",
-        message: "${message}"
+      await ky.post('/api/contact', {
+        json: {
+          name: "${name}",
+          email: "${email}",
+          message: "${message}"
+        },
       })
 
       alert("Message sent!")
