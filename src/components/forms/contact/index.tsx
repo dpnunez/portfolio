@@ -73,6 +73,8 @@ function FormSection() {
       toast.success('Message sent successfully.')
     } catch (err) {
       toast.error(err as string)
+    } finally {
+      window.turnstile.reset()
     }
   })
 

@@ -24,6 +24,7 @@ declare global {
   }
   interface Window {
     turnstile: {
+      reset: () => void
       render: (containerQuery: string, turnstileOpts) => void
     }
   }
