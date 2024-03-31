@@ -1,4 +1,4 @@
-import { api } from '@/lib/api'
+import ky from 'ky'
 import { NextResponse } from 'next/server'
 
 export async function POST(req: Request) {
@@ -10,7 +10,7 @@ export async function POST(req: Request) {
     formData.append('secret', process.env.TURNSTILE_SECRET)
     formData.append('response', token)
 
-    const res = await api.post(
+    const res = await ky.post(
       'https://challenges.cloudflare.com/turnstile/v0/siteverify',
       {
         body: formData,
