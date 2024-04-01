@@ -42,6 +42,11 @@ export const menu: MenuItem[] = [
     href: '/blog',
   },
   {
+    label: 'Guest Book',
+    name: 'guest-book.sql',
+    href: '/guest-book.sql',
+  },
+  {
     label: 'Contact',
     name: '/contact',
     href: '/contact/form.ts',
