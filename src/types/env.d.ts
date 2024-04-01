@@ -5,5 +5,8 @@ declare namespace NodeJS {
     NEXT_PUBLIC_TURNSFILE_CLIENT_KEY: string
     TURNSTILE_SECRET: string
     URL: string
+    GITHUB_ID: string
+    GITHUB_SECRET: string
+    AUTH_SECRET: string
   }
 }
