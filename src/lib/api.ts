@@ -1,4 +1,5 @@
 import ky from 'ky'
+import { toast } from 'sonner'
 
 const api = ky.create({
   prefixUrl: process.env.NEXT_PUBLIC_API_URL,
@@ -15,4 +16,10 @@ const api = ky.create({
   },
 })
 
-export { api }
+const apiErrorToast = (error: unknown) => {
+  if ((error as ErrorApi).message) {
+    toast.error((error as ErrorApi).message)
+  }
+}
+
+export { api, apiErrorToast }

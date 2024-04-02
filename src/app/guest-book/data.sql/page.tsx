@@ -1,5 +1,5 @@
 import { Editor } from '@/components'
-import { BookGuestForm } from '@/components/forms'
+import { GuestBookForm } from '@/components/forms'
 import { api } from '@/lib/api'
 import { headers } from 'next/headers'
 
@@ -10,7 +10,7 @@ export default async function Page() {
 
   return (
     <Editor.CodeSide fullSize className="mx-16">
-      <BookGuestForm canSend={canSend} />
+      <GuestBookForm hasSigned={!canSend} />
     </Editor.CodeSide>
   )
 }
