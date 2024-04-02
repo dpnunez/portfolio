@@ -5,10 +5,8 @@ import { headers } from 'next/headers'
 
 export default async function Page() {
   const { data: canSend } = await api
-    .get('api/book-guest/can-write', {
-      headers: headers(),
-    })
-    .json<{ data: boolean }>()
+    .get('api/book-guest/can-write', { headers: headers() })
+    .json<ResponseApi<boolean>>()
 
   return (
     <Editor.CodeSide fullSize className="mx-16">

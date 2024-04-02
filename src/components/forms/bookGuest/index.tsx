@@ -22,7 +22,6 @@ import { toast } from 'sonner'
 import * as z from 'zod'
 import { formStateAnim } from './anim'
 import { anim } from '@/lib/utils'
-import { FaSpinner } from 'react-icons/fa'
 
 type Schema = z.infer<typeof bookGuestForm>
 

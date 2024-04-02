@@ -14,6 +14,10 @@ declare global {
     message: string
   }
 
+  type ResponseApi<T> = {
+    data: T
+  }
+
   type MenuItem = {
     label: string
     name: string
