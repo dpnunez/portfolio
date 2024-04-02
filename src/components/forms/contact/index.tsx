@@ -5,6 +5,7 @@ import {
   Captcha,
   CodeSnippet,
   Editor,
+  FileName,
   Form,
   FormControl,
   FormField,
@@ -130,7 +131,6 @@ function FormSection() {
           size="lg"
           className="mt-4 max-lg:w-full"
           disabled={!tokenCaptcha}
-          loading={form.formState.isSubmitting}
         >
           $send_message
         </Button>
@@ -146,10 +146,9 @@ function ReqViwer() {
 
   return (
     <div className="rounded-xl bg-foreground/5 p-3 flex flex-col">
-      <span className="opacity-35 italic mb-4 flex items-center gap-3 ml-6">
-        <SiTypescript />
-        /forms/contact.ts
-      </span>
+      <FileName className="mb-4 ml-6" icon={<SiTypescript />}>
+        contact.ts
+      </FileName>
       <CodeSnippet>
         {contactData.req(values.name, values.email, values.message)}
       </CodeSnippet>

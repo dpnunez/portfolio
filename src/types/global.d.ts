@@ -14,6 +14,16 @@ declare global {
     message: string
   }
 
+  type ResponseApi<T> = {
+    data: T
+  }
+
+  type GuestEntry = {
+    id: string
+    message: string
+    createdAt: string
+  }
+
   type MenuItem = {
     label: string
     name: string

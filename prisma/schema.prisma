@@ -20,3 +20,9 @@ model ContactMessage {
   email     String
   createdAt DateTime @default(now())
 }
+
+model BookGuest {
+  id        String   @id
+  message   String
+  createdAt DateTime @default(now())
+}
