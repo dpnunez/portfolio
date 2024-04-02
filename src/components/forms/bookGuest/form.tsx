@@ -14,6 +14,7 @@ import { useForm } from 'react-hook-form'
 import { toast } from 'sonner'
 import * as z from 'zod'
 import { FormActions } from './formActions'
+import { useGuestBook } from '@/providers/guest-book'
 
 type Schema = z.infer<typeof bookGuestForm>
 
@@ -22,6 +23,7 @@ interface FormInsertProps {
 }
 
 function FormInsert({ onSuccess }: FormInsertProps) {
+  const { addGuest } = useGuestBook()
   const methods = useForm<Schema>({
     resolver: zodResolver(bookGuestForm),
     defaultValues: {
@@ -31,13 +33,16 @@ function FormInsert({ onSuccess }: FormInsertProps) {
 
   const onSubmit = methods.handleSubmit(async (data) => {
     try {
-      await api.post('api/guest-book', {
-        json: {
-          ...data,
-        },
-      })
+      const { data: insertedData } = await api
+        .post('api/guest-book', {
+          json: {
+            ...data,
+          },
+        })
+        .json<ResponseApi<GuestEntry>>()
 
       toast.success('Signature sent successfully!')
+      addGuest(insertedData)
       onSuccess(true)
       methods.reset()
     } catch (err) {

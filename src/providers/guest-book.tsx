@@ -11,11 +11,13 @@ type GuestData = {
 
 interface GuestBookContextType {
   guestList?: GuestData[]
+  loading: boolean
   addGuest: (guest: GuestData) => void
 }
 
 export const GuestBookContext = createContext<GuestBookContextType>({
-  guestList: [],
+  guestList: undefined,
+  loading: true,
   addGuest: () => {},
 })
 
@@ -28,14 +30,19 @@ export const useGuestBook = (): GuestBookContextType => {
 }
 
 export function GuestBookProvider({ children }: { children: React.ReactNode }) {
-  const { data, mutate } = useSWR('api/guest-book', apiFetcher<GuestData[]>)
+  const { data, mutate, isLoading } = useSWR(
+    'api/guest-book',
+    apiFetcher<GuestData[]>,
+  )
 
   const addGuest = (data: GuestData) => {
     mutate((old) => [data, ...(old || [])], false)
   }
 
   return (
-    <GuestBookContext.Provider value={{ guestList: data, addGuest }}>
+    <GuestBookContext.Provider
+      value={{ guestList: data, addGuest, loading: isLoading }}
+    >
       {children}
     </GuestBookContext.Provider>
   )

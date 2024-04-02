@@ -18,6 +18,12 @@ declare global {
     data: T
   }
 
+  type GuestEntry = {
+    id: string
+    message: string
+    createdAt: string
+  }
+
   type MenuItem = {
     label: string
     name: string

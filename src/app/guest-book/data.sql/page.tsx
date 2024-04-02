@@ -10,7 +10,7 @@ export default async function Page() {
     .json<ResponseApi<boolean>>()
 
   return (
-    <Editor.CodeSide fullSize className="mx-16 flex-col gap-10">
+    <Editor.CodeSide fullSize className="px-16 flex-col gap-4">
       <GuestBookProvider>
         <GuestBookForm hasSigned={!canSend} />
         <GuestBookList />

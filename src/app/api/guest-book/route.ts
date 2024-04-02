@@ -36,11 +36,15 @@ export async function POST(req: Request) {
   const message = data.message
 
   try {
-    await prisma.bookGuest.create({
+    const res = await prisma.bookGuest.create({
       data: {
         id: githubUsername,
         message,
       },
+    })
+
+    return NextResponse.json({
+      data: res,
     })
   } catch (error) {
     return NextResponse.json(

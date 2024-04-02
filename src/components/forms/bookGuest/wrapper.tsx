@@ -17,8 +17,8 @@ export function GuestBookForm({ hasSigned }: GuestBookHeaderProps) {
     : 'Thank you for sign my guest book!'
 
   return (
-    <div className="w-full">
-      <AnimatePresence mode="wait">
+    <div className="w-full min-h-16">
+      <AnimatePresence mode="wait" initial={false}>
         {justSigned ? (
           <motion.p
             key="message"

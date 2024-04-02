@@ -28,6 +28,7 @@ const config = {
       gridTemplateColumns: {
         'editor-desktop': '320px 1fr 1fr 1fr',
         'editor-mobile': '1fr',
+        'guest-book': 'auto 1fr auto',
       },
       gridTemplateRows: {
         editor: '52px auto 32px',
