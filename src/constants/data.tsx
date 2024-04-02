@@ -43,8 +43,8 @@ export const menu: MenuItem[] = [
   },
   {
     label: 'Guest Book',
-    name: 'guest-book.sql',
-    href: '/guest-book.sql',
+    name: 'guest-book',
+    href: '/guest-book/data.sql',
   },
   {
     label: 'Contact',
