@@ -130,7 +130,6 @@ function FormSection() {
           size="lg"
           className="mt-4 max-lg:w-full"
           disabled={!tokenCaptcha}
-          loading={form.formState.isSubmitting}
         >
           $send_message
         </Button>
