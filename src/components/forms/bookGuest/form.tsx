@@ -31,7 +31,7 @@ function FormInsert({ onSuccess }: FormInsertProps) {
 
   const onSubmit = methods.handleSubmit(async (data) => {
     try {
-      await api.post('api/book-guest', {
+      await api.post('api/guest-book', {
         json: {
           ...data,
         },

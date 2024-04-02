@@ -22,4 +22,11 @@ const apiErrorToast = (error: unknown) => {
   }
 }
 
-export { api, apiErrorToast }
+function apiFetcher<T>(url: string) {
+  return api
+    .get(url)
+    .json<ResponseApi<T>>()
+    .then((res) => res.data)
+}
+
+export { api, apiFetcher, apiErrorToast }

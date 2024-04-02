@@ -56,3 +56,11 @@ export async function POST(req: Request) {
 
   return NextResponse.json({ message: 'Email sent' })
 }
+
+export async function GET() {
+  const messages = await prisma.bookGuest.findMany()
+
+  return NextResponse.json({
+    data: messages,
+  })
+}
