@@ -5,6 +5,12 @@ declare global {
     exit?: import('framer-motion').Variant
   }
 
+  type ProjectTypes = {
+    label: string
+    name: string
+    icon: React.ReactNode
+  }
+
   interface turnstileOpts {
     sitekey: string
     callback: (token: string) => void

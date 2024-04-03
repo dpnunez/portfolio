@@ -7,13 +7,8 @@ interface EnterCode {
 
 export function EnterCode({ children, className }: EnterCode) {
   return (
-    <div
-      className={cn('w-full', className)}
-      style={{
-        perspective: 1000,
-      }}
-    >
-      <div className="animate-open-file">{children}</div>
+    <div className={cn('w-full h-fit', className)}>
+      <div className={cn('animate-open-file', className)}>{children}</div>
     </div>
   )
 }

@@ -1,13 +1,14 @@
 'use client'
 
-import { Separator } from '@/components'
+import { Editor } from '@/components'
 import { anim, cn } from '@/lib/utils'
 import { AnimatePresence, motion, MotionProps } from 'framer-motion'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import React from 'react'
-import { FaChevronDown, FaFile, FaFolder, FaFolderOpen } from 'react-icons/fa'
-import { containerAnim, folderAnim, navigationItem, panelAnim } from './anim'
+import { FaFile, FaFolder, FaFolderOpen } from 'react-icons/fa'
+import { folderAnim } from './anim'
+import { fileTreeItem } from '@/styles/framer-animations'
 
 interface FileTreeData {
   data: MenuItem[]
@@ -46,7 +47,7 @@ function NavigationItem({
         },
       )}
       {...props}
-      {...anim({ variants: navigationItem, custom: { idx, len } })}
+      {...anim({ variants: fileTreeItem, custom: { idx, len } })}
     >
       {children}
     </Element>
@@ -114,36 +115,11 @@ export function FileTreePanelCollapse({
   data,
   defaultOpen = true,
 }: PanelProps) {
-  const [open, setOpen] = React.useState(defaultOpen)
-
   return (
-    <>
-      <button
-        className="hover:bg-foreground/5 p-2 px-4 flex justify-between items-center"
-        type="button"
-        onClick={() => setOpen(!open)}
-      >
-        {title}
-        <motion.div {...anim({ variants: panelAnim, custom: open })}>
-          <FaChevronDown />
-        </motion.div>
-      </button>
-      {open && <Separator />}
-      <AnimatePresence initial={false} mode="sync">
-        {open && (
-          <motion.div
-            className="overflow-hidden flex flex-col"
-            {...anim({
-              variants: containerAnim,
-            })}
-          >
-            <AnimatePresence>
-              <FileTreeNavigation data={data} />
-            </AnimatePresence>
-          </motion.div>
-        )}
+    <Editor.Panel defaultOpen={defaultOpen} title={title}>
+      <AnimatePresence>
+        <FileTreeNavigation data={data} />
       </AnimatePresence>
-      <Separator />
-    </>
+    </Editor.Panel>
   )
 }

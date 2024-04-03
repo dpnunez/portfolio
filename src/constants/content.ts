@@ -119,3 +119,32 @@ export const contactData = {
   )
 }`,
 }
+
+interface Projects {
+  list: {
+    title: string
+    slug: string
+    image: string
+    shortDescription: string
+    readmeUrl: string
+    githubLink: string
+    link: string
+    tags: string[]
+  }[]
+}
+export const projects: Projects = {
+  list: [
+    {
+      title: 'Portfolio',
+      slug: 'portfolio',
+      image: '/projects/portfolio.jpeg',
+      readmeUrl:
+        'https://raw.githubusercontent.com/dpnunez/portfolio/main/README.md',
+      githubLink: 'https://github.com/dpnunez/portfolio',
+      shortDescription:
+        'A personal portfolio made with Next.js and TypeScript.',
+      link: 'https://github.com/dpnunez/portfolio',
+      tags: ['react', 'node'],
+    },
+  ],
+}
