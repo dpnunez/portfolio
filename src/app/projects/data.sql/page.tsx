@@ -1,4 +1,5 @@
 import { Editor, ProjectsFilter } from '@/components'
+import { ProjectsList } from '@/components/projectsList'
 
 export default function Page() {
   return (
@@ -6,7 +7,9 @@ export default function Page() {
       <Editor.FileTreeSide>
         <ProjectsFilter />
       </Editor.FileTreeSide>
-      <Editor.CodeSide>b</Editor.CodeSide>
+      <Editor.CodeSide>
+        <ProjectsList />
+      </Editor.CodeSide>
     </>
   )
 }

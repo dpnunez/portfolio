@@ -119,3 +119,65 @@ export const contactData = {
   )
 }`,
 }
+
+export const projects = {
+  list: [
+    {
+      title: 'Portfolio',
+      slug: 'portfolio',
+      image: 'https://source.unsplash.com/random',
+      shortDescription:
+        'A personal portfolio made with Next.js and TypeScript.',
+      link: 'https://github.com/dpnunez/portfolio',
+      tags: ['react', 'node'],
+    },
+    {
+      title: 'Delivery',
+      slug: 'delivery',
+      image: 'https://source.unsplash.com/random?delivery',
+      shortDescription: 'A delivery system made with React and Node.',
+      link: '',
+      tags: ['react', 'node'],
+    },
+    {
+      title: 'E-commerce',
+      slug: 'e-commerce',
+      image: 'https://source.unsplash.com/random?commerce',
+      shortDescription: 'An e-commerce made with Vue and Node.',
+      link: '',
+      tags: ['vue', 'node'],
+    },
+    {
+      title: 'Blog',
+      slug: 'blog',
+      image: 'https://source.unsplash.com/random?blog',
+      shortDescription: 'A blog made with Svelte and Node.',
+      link: '',
+      tags: ['svelte', 'node'],
+    },
+    {
+      title: 'Social network',
+      slug: 'social-network',
+      image: 'https://source.unsplash.com/random?social',
+      shortDescription: 'A social network made with React and Node.',
+      link: '',
+      tags: ['react', 'node'],
+    },
+    {
+      title: 'Dashboard',
+      slug: 'dashboard',
+      image: 'https://source.unsplash.com/random?dashboard',
+      shortDescription: 'A dashboard made with Vue and Node.',
+      link: '',
+      tags: ['vue', 'node'],
+    },
+  ],
+  content: {
+    portfolio: {
+      description: `# Portfolio
+This is my personal portfolio, made with Next.js and TypeScript.`,
+      techs: ['next', 'typescript'],
+      images: ['https://source.unsplash.com/random'],
+    },
+  },
+}

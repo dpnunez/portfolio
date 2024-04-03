@@ -37,21 +37,22 @@ function Tech({ name, label, icon }: ProjectTypes) {
   const router = useRouter()
   const filter = get('filter')?.split(' ')
 
-  const checked = filter?.includes(name)
+  const checked = !!filter?.includes(name)
 
-  const onChange = () => {
-    const newValue = !checked
-
-    let newFilter = filter || []
-    if (!newValue) {
-      newFilter = newFilter.filter((e) => e !== name)
+  const onChange = (e: React.MouseEvent<HTMLDivElement>) => {
+    e.preventDefault()
+    const currentFilter = filter || []
+    let newFilter = currentFilter
+    if (checked) {
+      newFilter = currentFilter?.filter((item) => item !== name)
+      if (newFilter.length === 0) {
+        router.push('?')
+        return
+      }
     } else {
       newFilter.push(name)
     }
-    if (newFilter.length === 0) {
-      router.push('?')
-      return
-    }
+
     router.push(`?filter=${newFilter.join(' ')}`)
   }
 
