@@ -79,7 +79,7 @@ function List() {
                   {project.tags.map((tag) => (
                     <span
                       key={tag}
-                      className={cn('text-xs bg-foreground/10 p-1 rounded-md')}
+                      className={cn('text-xs bg-foreground/15 p-1 rounded-md')}
                     >
                       {tag}
                     </span>

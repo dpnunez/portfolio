@@ -18,7 +18,7 @@ export function Header() {
           <Editor.Navigation.Mobile />
         </div>
       </Editor.FileTreeSide>
-      <Editor.CodeSide className="border-b dark:border-foreground/10 border-zinc-500/30 justify-between hidden md:flex p-0">
+      <Editor.CodeSide className="border-b dark:border-foreground/15 border-zinc-500/30 justify-between hidden md:flex p-0">
         <Editor.Navigation.Desktop items={menu} />
         <ToggleTheme />
       </Editor.CodeSide>
