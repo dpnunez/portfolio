@@ -1,9 +1,11 @@
-import { Editor } from '@/components'
+import { Editor, ProjectsFilter } from '@/components'
 
 export default function Page() {
   return (
     <>
-      <Editor.FileTreeSide>a</Editor.FileTreeSide>
+      <Editor.FileTreeSide>
+        <ProjectsFilter />
+      </Editor.FileTreeSide>
       <Editor.CodeSide>b</Editor.CodeSide>
     </>
   )

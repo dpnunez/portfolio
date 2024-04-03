@@ -7,7 +7,8 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import React from 'react'
 import { FaFile, FaFolder, FaFolderOpen } from 'react-icons/fa'
-import { folderAnim, navigationItem } from './anim'
+import { folderAnim } from './anim'
+import { fileTreeItem } from '@/styles/framer-animations'
 
 interface FileTreeData {
   data: MenuItem[]
@@ -46,7 +47,7 @@ function NavigationItem({
         },
       )}
       {...props}
-      {...anim({ variants: navigationItem, custom: { idx, len } })}
+      {...anim({ variants: fileTreeItem, custom: { idx, len } })}
     >
       {children}
     </Element>

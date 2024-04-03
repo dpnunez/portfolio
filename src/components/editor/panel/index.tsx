@@ -8,12 +8,12 @@ import { contentAnim, panelAnim } from './anim'
 import { Separator } from '@/components'
 
 interface PanelProps {
-  defaultOpen: boolean
+  defaultOpen?: boolean
   title: string
   children: React.ReactNode
 }
 
-export function Panel({ defaultOpen, title, children }: PanelProps) {
+export function Panel({ defaultOpen = true, title, children }: PanelProps) {
   const [open, setOpen] = React.useState(defaultOpen)
 
   return (
