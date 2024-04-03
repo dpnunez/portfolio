@@ -132,6 +132,7 @@ interface Projects {
     tags: string[]
   }[]
 }
+
 export const projects: Projects = {
   list: [
     {

@@ -1,5 +1,6 @@
 import { CodeSnippet } from '@/components'
 import { projects } from '@/constants/content'
+import ky from 'ky'
 import { MDXRemote } from 'next-mdx-remote/rsc'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -18,8 +19,7 @@ export default async function RemoteMdxPage({
 
   if (!data) throw new Error('Project not found')
 
-  const res = await fetch(data.readmeUrl)
-  const markdown = await res.text()
+  const markdown = await ky.get(data.readmeUrl).text()
 
   return (
     <div className="flex flex-col">
