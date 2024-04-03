@@ -13,6 +13,7 @@ import {
   FormLabel,
   FormMessage,
   Input,
+  Spinner,
   Textarea,
 } from '@/components'
 import { contactData } from '@/constants/content'
@@ -129,10 +130,10 @@ function FormSection() {
         <Button
           type="submit"
           size="lg"
-          className="mt-4 max-lg:w-full"
+          className="mt-4 max-lg:w-full w-40"
           disabled={!tokenCaptcha}
         >
-          $send_message
+          {form.formState.isSubmitting ? <Spinner /> : 'Send message'}
         </Button>
       </div>
     </form>
