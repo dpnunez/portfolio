@@ -136,6 +136,7 @@
 
  .linenumber {
     @apply text-foreground/30;
+    min-width: 3rem !important;
  }
 
  .token.string {
