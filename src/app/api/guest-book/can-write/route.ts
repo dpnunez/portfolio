@@ -6,7 +6,7 @@ import { NextResponse } from 'next/server'
 export async function GET() {
   const session = await getServerSession(authOptions)
 
-  if (!session)
+  if (!session || !session.user.username)
     return NextResponse.json({
       data: true,
     })
