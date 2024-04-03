@@ -33,8 +33,8 @@ export const menu: MenuItem[] = [
   },
   {
     label: 'Projects',
-    name: 'projects.ts',
-    href: '/projects',
+    name: '/projects',
+    href: '/projects/data.sql',
   },
   {
     label: 'Blog',
