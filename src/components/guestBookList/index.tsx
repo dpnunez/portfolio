@@ -1,62 +1,98 @@
 'use client'
 
 import { useGuestBook } from '@/providers/guest-book'
-import { Fragment } from 'react'
 import { Loading } from './loading'
 import { AnimatePresence, motion } from 'framer-motion'
 import { anim } from '@/lib/utils'
-import { contentAnim } from './anim'
-import { FileName } from '@/components'
+import { contentAnim, counterAnim } from './anim'
+import {
+  FileName,
+  Table,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from '@/components'
 import { FaDatabase } from 'react-icons/fa'
 
 export function GuestBookList() {
-  const { loading } = useGuestBook()
+  const { guestList } = useGuestBook()
+  const rows = guestList?.length
 
   return (
     <div>
       <FileName icon={<FaDatabase />} className="mb-4">
-        guests.sql
+        guests.sql{' '}
+        <AnimatePresence mode="wait" initial={false}>
+          {!guestList ? (
+            <motion.span
+              key="counter-loader"
+              {...anim({
+                variants: counterAnim,
+              })}
+            >
+              (loading)
+            </motion.span>
+          ) : (
+            <motion.span
+              key="counter-data"
+              {...anim({
+                variants: counterAnim,
+              })}
+              className="text-sm"
+            >
+              ({rows} rows)
+            </motion.span>
+          )}
+        </AnimatePresence>
       </FileName>
-      <AnimatePresence mode="wait" initial={false}>
-        {loading ? (
-          <motion.div
-            key="loader"
-            className="overflow-hidden"
-            {...anim({
-              variants: contentAnim,
-            })}
-          >
-            <Loading />
-          </motion.div>
-        ) : (
-          <motion.div
-            key="data"
-            {...anim({
-              variants: contentAnim,
-            })}
-          >
-            <List />
-          </motion.div>
-        )}
-      </AnimatePresence>
+      <List />
     </div>
   )
 }
 
 function List() {
-  const { guestList } = useGuestBook()
+  const { loading } = useGuestBook()
 
   return (
-    <div className="grid gap-x-4 grid-cols-guest-book">
+    <Table>
+      <TableHeader>
+        <TableRow>
+          <TableHead className="w-[200px]">username</TableHead>
+          <TableHead>message</TableHead>
+          <TableHead className="text-right w-16 flex-nowrap">
+            createdAt
+          </TableHead>
+        </TableRow>
+      </TableHeader>
+
+      <AnimatePresence mode="wait" initial={false}>
+        {loading ? <Loading key="loading" /> : <ListBody key="content" />}
+      </AnimatePresence>
+    </Table>
+  )
+}
+
+function ListBody() {
+  const { guestList } = useGuestBook()
+  return (
+    <motion.tbody
+      {...anim({
+        variants: contentAnim,
+      })}
+      className="[&_tr:last-child]:border-0"
+    >
       {guestList?.map((guest) => (
-        <Fragment key={guest.id}>
-          <h1 className="after:content-[':'] relative after:absolute after:right-0 w-full pr-8">
-            {guest.id}
-          </h1>
-          <p>&quot;{guest.message}&quot;</p>
-          <span>{guest.createdAt}</span>
-        </Fragment>
+        <TableRow key={guest.id} className="h-10">
+          <TableCell className="font-medium">{guest.id}</TableCell>
+          <TableCell>{guest.message}</TableCell>
+          <TableCell className="text-right text-nowrap p-0">
+            <div className="bg-foreground/5 p-1 px-3 rounded-xl">
+              {guest.createdAt}
+            </div>
+          </TableCell>
+        </TableRow>
       ))}
-    </div>
+    </motion.tbody>
   )
 }
