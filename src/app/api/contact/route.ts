@@ -2,6 +2,7 @@ import { api } from '@/lib/api'
 import prisma from '@/lib/db'
 import { transporter } from '@/lib/mailer'
 import { ContactFormBody } from '@/types/forms'
+import { contactSchema } from '@/validations'
 import { NextResponse } from 'next/server'
 
 export async function POST(req: Request) {
@@ -13,6 +14,20 @@ export async function POST(req: Request) {
         token: data.captcha_token,
       },
     })
+
+    const validInput = contactSchema.safeParse(data)
+    if (!validInput.success) {
+      return NextResponse.json(
+        {
+          error: {
+            message: 'Invalid entries, please check the form.',
+          },
+        },
+        {
+          status: 401,
+        },
+      )
+    }
 
     await Promise.all([
       prisma.contactMessage.create({
@@ -47,7 +62,7 @@ export async function POST(req: Request) {
     return NextResponse.json(
       {
         error: {
-          message: error.message,
+          message: error.message || 'Error sending your message.',
         },
       },
       {
