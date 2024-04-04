@@ -6,12 +6,10 @@ import withPlaceholder from '@plaiceholder/next'
 const nextConfig = {
   pageExtensions: ['js', 'jsx', 'mdx', 'ts', 'tsx'],
   images: {
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'source.unsplash.com',
-      },
-    ],
+    domains: [
+      'images.unsplash.com',
+      'images.example.com',
+    ]
   },
 }
 
