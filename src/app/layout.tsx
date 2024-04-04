@@ -26,7 +26,6 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
-  const session = await getServerSession()
 
   return (
     <html lang="en">
@@ -36,7 +35,6 @@ export default async function RootLayout({
           fontSans.variable,
         )}
       >
-        <NextAuthProvider session={session}>
           <FramerGlobalConfig>
             <ThemeProvider
               attribute="class"
