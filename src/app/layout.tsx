@@ -7,7 +7,6 @@ import { FramerGlobalConfig } from '@/providers/framer-provider'
 
 import '@/styles/globals.css'
 import '@/styles/prism.css'
-import { getServerSession } from 'next-auth'
 import { NextAuthProvider } from '@/providers/nextauth-provider'
 
 const fontSans = FontSans({
@@ -26,7 +25,6 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
-
   return (
     <html lang="en">
       <body
@@ -35,6 +33,7 @@ export default async function RootLayout({
           fontSans.variable,
         )}
       >
+        <NextAuthProvider>
           <FramerGlobalConfig>
             <ThemeProvider
               attribute="class"
