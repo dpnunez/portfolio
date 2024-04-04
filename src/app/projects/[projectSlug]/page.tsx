@@ -25,9 +25,9 @@ export default async function RemoteMdxPage({
     <div className="flex flex-col">
       <Image
         className="aspect-video w-full md:w-[70%] mx-auto rounded-3xl object-cover mb-10"
-        src={data.imageDir + '/original.jpeg'}
-        blurDataURL={data.imageDir + '/blur.jpeg'}
+        src={data.image}
         placeholder="blur"
+        blurDataURL={data.imageBlur}
         alt={data.title}
         width={800}
         height={400}

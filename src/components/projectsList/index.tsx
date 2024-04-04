@@ -69,9 +69,9 @@ function List() {
                   className="aspect-video w-full object-cover group-hover:scale-125 transition-transform duration-700"
                   width={500}
                   height={500}
-                  src={project.imageDir + '/original.jpeg'}
+                  src={project.image}
+                  blurDataURL={project.imageBlur}
                   placeholder="blur"
-                  blurDataURL={project.imageDir + '/blur.jpeg'}
                   alt={project.title}
                 />
               </div>
