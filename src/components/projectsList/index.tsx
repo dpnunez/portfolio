@@ -70,8 +70,6 @@ function List() {
                   width={500}
                   height={500}
                   src={project.image}
-                  blurDataURL={project.imageBlur}
-                  placeholder="blur"
                   alt={project.title}
                 />
               </div>
