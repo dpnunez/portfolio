@@ -28,6 +28,7 @@
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
     "framer-motion": "^11.0.22",
+    "glob": "^10.3.12",
     "ky": "^1.2.3",
     "next": "14.1.4",
     "next-auth": "^4.24.7",

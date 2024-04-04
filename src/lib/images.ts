@@ -19,15 +19,12 @@ export async function getPlaceholder(str: string) {
   }
 }
 
-export async function getPlaceholderFromLocalImage(str: string) {
-  try {
-    const basePath = './public'
-    const buffer = await fs.readFile(basePath + str)
-    const { base64 } = await getPlaiceholder(buffer, placeholderConfig)
-    return base64
-  } catch {
-    return undefined
-  }
+export async function getPlaceholderFromLocalImage(file: string) {
+  const nextRelativePath = file.replace('public', '')
+  const fsPath = 'public' + nextRelativePath
+  const buffer = await fs.readFile(fsPath)
+  const plaiceholder = await getPlaiceholder(buffer)
+  return plaiceholder.base64
 }
 
 export async function getPlaceholderFromRemoteImage(str: string) {

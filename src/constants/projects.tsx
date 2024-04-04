@@ -32,7 +32,7 @@ export const projectsList: Project[] = [
   {
     title: 'Portfolio',
     slug: 'portfolio',
-    image: '/projects/portfolio/original.jpeg',
+    image: '/assets/images/projects/portfolio.jpeg',
     readmeUrl:
       'https://raw.githubusercontent.com/dpnunez/portfolio/main/README.md',
     githubLink: 'https://github.com/dpnunez/portfolio',
