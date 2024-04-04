@@ -14,7 +14,7 @@ declare global {
   type Project = {
     title: string
     slug: string
-    image: string
+    imageDir: string
     shortDescription: string
     readmeUrl: string
     githubLink: string

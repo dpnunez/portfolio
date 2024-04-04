@@ -129,7 +129,7 @@ export const projects: ProjectsData = {
     {
       title: 'Portfolio',
       slug: 'portfolio',
-      image: '/projects/portfolio.jpeg',
+      imageDir: '/projects/portfolio',
       readmeUrl:
         'https://raw.githubusercontent.com/dpnunez/portfolio/main/README.md',
       githubLink: 'https://github.com/dpnunez/portfolio',
