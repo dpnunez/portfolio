@@ -1,5 +1,6 @@
 import { CodeSnippet } from '@/components'
-import { projects } from '@/constants/content'
+import { projectsList } from '@/constants/projects'
+import { getPlaceholder } from '@/lib/images'
 import ky from 'ky'
 import { MDXRemote } from 'next-mdx-remote/rsc'
 import Image from 'next/image'
@@ -13,28 +14,28 @@ export default async function RemoteMdxPage({
     projectSlug: string
   }
 }) {
-  const data = projects.list.find(
+  const project = projectsList.find(
     (project) => project.slug === params.projectSlug,
   )
+  if (!project) throw new Error('Project not found')
 
-  if (!data) throw new Error('Project not found')
-
-  const markdown = await ky.get(data.readmeUrl).text()
+  const markdown = await ky.get(project.readmeUrl).text()
+  const placeholder = await getPlaceholder(project.image)
 
   return (
     <div className="flex flex-col">
       <Image
         className="aspect-video w-full md:w-[70%] mx-auto rounded-3xl object-cover mb-10"
-        src={data.image}
+        src={project.image}
         placeholder="blur"
-        blurDataURL={data.imageBlur}
-        alt={data.title}
+        blurDataURL={placeholder}
+        alt={project.title}
         width={800}
         height={400}
       />
 
       <h1 className="hover:text-pink-500 transition-colors text-3xl font-bold mx-auto block mb-20">
-        {data.title}
+        {project.title}
       </h1>
       <MDXRemote
         components={{

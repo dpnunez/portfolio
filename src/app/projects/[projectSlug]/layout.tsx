@@ -1,5 +1,5 @@
 import { Editor } from '@/components'
-import { projects } from '@/constants/content'
+import { projectsList } from '@/constants/projects'
 import { ChevronLeftIcon } from '@radix-ui/react-icons'
 import Link from 'next/link'
 import { FaGithub } from 'react-icons/fa'
@@ -13,7 +13,7 @@ export default function Layout({
     projectSlug: string
   }
 }) {
-  const data = projects.list.find(
+  const data = projectsList.find(
     (project) => project.slug === params.projectSlug,
   )
 

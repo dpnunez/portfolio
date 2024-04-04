@@ -27,3 +27,17 @@ export const projectsTypes: ProjectTag[] = [
     icon: <FaLinkedin />,
   },
 ]
+
+export const projectsList: Project[] = [
+  {
+    title: 'Portfolio',
+    slug: 'portfolio',
+    image: '/projects/portfolio/original.jpeg',
+    readmeUrl:
+      'https://raw.githubusercontent.com/dpnunez/portfolio/main/README.md',
+    githubLink: 'https://github.com/dpnunez/portfolio',
+    shortDescription: 'A personal portfolio made with Next.js and TypeScript.',
+    link: 'https://github.com/dpnunez/portfolio',
+    tags: ['react', 'node'],
+  },
+]

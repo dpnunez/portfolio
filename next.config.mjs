@@ -1,7 +1,8 @@
 
 import remarkGfm from 'remark-gfm'
 import createMDX from '@next/mdx'
-
+import withPlaceholder from '@plaiceholder/next'
+ 
 const nextConfig = {
   pageExtensions: ['js', 'jsx', 'mdx', 'ts', 'tsx'],
   images: {
@@ -20,6 +21,6 @@ const withMDX = createMDX({
     rehypePlugins: [],
   },
 })
- 
 
-export default withMDX(nextConfig)
+
+export default withPlaceholder(withMDX(nextConfig))
