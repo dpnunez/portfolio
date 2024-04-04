@@ -39,18 +39,20 @@ export function ContactForm() {
   })
 
   return (
-    <Editor.EnterCode className="m-10">
-      <h1 className="text-xl md:text-3xl font-bold mb-8">
-        # Send me a message
-      </h1>
+    <Editor.EnterCode className="m-10 flex">
       <Form {...methods}>
-        <div className="flex w-full">
-          <div className="flex-1">
-            <FormSection />
+        <div className="flex-1">
+          <h1 className="text-xl md:text-3xl font-bold mb-8">
+            # Send me a message
+          </h1>
+          <div className="flex w-full">
+            <div className="flex-1">
+              <FormSection />
+            </div>
           </div>
-          <div className="flex-1 md:block hidden">
-            <ReqViwer />
-          </div>
+        </div>
+        <div className="items-center justify-center flex-1 hidden md:flex">
+          <ReqViwer />
         </div>
       </Form>
     </Editor.EnterCode>

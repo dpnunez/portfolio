@@ -1,7 +1,7 @@
 'use client'
 
 import { Checkbox, Editor } from '@/components'
-import { projectsTypes } from '@/constants/data'
+import { projectsTypes } from '@/constants/projects'
 import { anim } from '@/lib/utils'
 import { fileTreeItem } from '@/styles/framer-animations'
 import { AnimatePresence, motion } from 'framer-motion'
@@ -32,7 +32,7 @@ export function ProjectsFilter() {
   )
 }
 
-function Tech({ name, label, icon }: ProjectTypes) {
+function Tech({ name, label, icon }: ProjectTag) {
   const { get } = useSearchParams()
   const router = useRouter()
   const filter = get('filter')?.split(' ')

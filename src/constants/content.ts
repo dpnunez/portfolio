@@ -120,19 +120,11 @@ export const contactData = {
 }`,
 }
 
-interface Projects {
-  list: {
-    title: string
-    slug: string
-    image: string
-    shortDescription: string
-    readmeUrl: string
-    githubLink: string
-    link: string
-    tags: string[]
-  }[]
+interface ProjectsData {
+  list: Project[]
 }
-export const projects: Projects = {
+
+export const projects: ProjectsData = {
   list: [
     {
       title: 'Portfolio',
