@@ -15,7 +15,6 @@ declare global {
     title: string
     slug: string
     image: string
-    imageBlur: string
     shortDescription: string
     readmeUrl: string
     githubLink: string
