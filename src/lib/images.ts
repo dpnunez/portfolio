@@ -21,7 +21,9 @@ export async function getPlaceholder(str: string) {
 
 export async function getPlaceholderFromLocalImage(str: string) {
   try {
-    const buffer = await fs.readFile('./public' + str)
+    const isDev = process.env.NODE_ENV === 'development'
+    const basePath = isDev ? './public' : '.'
+    const buffer = await fs.readFile(basePath + str)
     const { base64 } = await getPlaiceholder(buffer, placeholderConfig)
     return base64
   } catch {
