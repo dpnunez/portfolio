@@ -1,11 +1,20 @@
 import { CodeSnippet } from '@/components'
 import { projectsList } from '@/constants/projects'
-import { getPlaceholder } from '@/lib/images'
+import fs from 'node:fs/promises'
 import ky from 'ky'
 import { MDXRemote } from 'next-mdx-remote/rsc'
 import Image from 'next/image'
 import Link from 'next/link'
+import { getPlaiceholder } from 'plaiceholder'
 import remarkGfm from 'remark-gfm'
+
+const getImage = async (file: string) => {
+  const nextRelativePath = file.replace('public', '')
+  const fsPath = 'public' + nextRelativePath
+  const buffer = await fs.readFile(fsPath)
+  const plaiceholder = await getPlaiceholder(buffer)
+  return { ...plaiceholder, img: { src: nextRelativePath } }
+}
 
 export default async function RemoteMdxPage({
   params,
@@ -20,15 +29,17 @@ export default async function RemoteMdxPage({
   if (!project) throw new Error('Project not found')
 
   const markdown = await ky.get(project.readmeUrl).text()
-  const placeholder = await getPlaceholder(project.image)
+  const { base64, img } = await getImage(
+    '/assets/images/projects/portfolio.jpeg',
+  )
 
   return (
     <div className="flex flex-col">
       <Image
         className="aspect-video w-full md:w-[70%] mx-auto rounded-3xl object-cover mb-10"
-        src={project.image}
+        src={img.src}
         placeholder="blur"
-        blurDataURL={placeholder}
+        blurDataURL={base64}
         alt={project.title}
         width={800}
         height={400}
