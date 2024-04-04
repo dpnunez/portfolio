@@ -5,10 +5,21 @@ declare global {
     exit?: import('framer-motion').Variant
   }
 
-  type ProjectTypes = {
+  type ProjectTag = {
     label: string
     name: string
     icon: React.ReactNode
+  }
+
+  type Project = {
+    title: string
+    slug: string
+    image: string
+    shortDescription: string
+    readmeUrl: string
+    githubLink: string
+    link: string
+    tags: string[]
   }
 
   interface turnstileOpts {
