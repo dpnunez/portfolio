@@ -10,6 +10,8 @@ export default async function Page() {
   const blur = await getPlaceholder(external)
   const blurPublic = await getPlaceholder(internal)
 
+  console.log('blurPublic', blurPublic)
+
   return (
     <div>
       <div className="flex items-center gap-2 flex-col">
@@ -25,6 +27,7 @@ export default async function Page() {
         />
       </div>
       <div className="flex items-center gap-2 flex-col">
+        {blurPublic}
         <h2>Internal</h2>
         <Image
           className="w-96 aspect-square overflow-hidden"
