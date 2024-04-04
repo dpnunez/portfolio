@@ -1,6 +1,5 @@
 'use client'
 
-import { projects } from '@/constants/content'
 import { CodeSnippet, Editor } from '..'
 import Image from 'next/image'
 import { useSearchParams } from 'next/navigation'
@@ -8,6 +7,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { anim, cn } from '@/lib/utils'
 import { cardAnim } from './anim'
 import Link from 'next/link'
+import { projectsList } from '@/constants/projects'
 
 export function ProjectsList() {
   return (
@@ -42,10 +42,10 @@ function List() {
   const filter = params?.get('filter')?.split(' ')
   const filterSet = new Set(filter || [])
   const filteredList = filter
-    ? projects.list.filter((project) => {
+    ? projectsList.filter((project) => {
         return project.tags.some((tag) => filterSet.has(tag))
       })
-    : projects.list
+    : projectsList
 
   return (
     <AnimatePresence mode="popLayout">

@@ -1,5 +1,5 @@
 import { CodeSnippet } from '@/components'
-import { projects } from '@/constants/content'
+import { projectsList } from '@/constants/projects'
 import ky from 'ky'
 import { MDXRemote } from 'next-mdx-remote/rsc'
 import Image from 'next/image'
@@ -13,7 +13,7 @@ export default async function RemoteMdxPage({
     projectSlug: string
   }
 }) {
-  const data = projects.list.find(
+  const data = projectsList.find(
     (project) => project.slug === params.projectSlug,
   )
 
