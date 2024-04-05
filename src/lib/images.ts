@@ -1,4 +1,4 @@
-import fs from 'node:fs/promises'
+import { promises as fs } from 'fs'
 import { getPlaiceholder } from 'plaiceholder'
 
 interface GeneratePlaceholder {
@@ -10,7 +10,8 @@ export async function generatePlaceholder(
   file: string,
 ): Promise<GeneratePlaceholder> {
   try {
-    const buffer = await fs.readFile(`./public${file}`)
+    const buffer = await fs.readFile(`${process.cwd()}/public${file}`)
+    console.log(buffer)
     const plaiceholder = await getPlaiceholder(buffer)
 
     return {
