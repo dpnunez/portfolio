@@ -1,8 +1,14 @@
 import { Spinner } from '@/components'
+import { cn } from '@/lib/utils'
 
-export function Loading() {
+export function Loading({ className }: { className?: string }) {
   return (
-    <div className="w-full h-full flex items-center justify-center">
+    <div
+      className={cn(
+        'w-full h-full flex items-center justify-center',
+        className,
+      )}
+    >
       <Spinner />
     </div>
   )

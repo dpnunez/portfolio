@@ -85,3 +85,9 @@ export default async function RemoteMdxPage({
     </div>
   )
 }
+
+export async function generateStaticParams() {
+  return projectsList.map((project) => ({
+    projectSlug: project.slug,
+  }))
+}

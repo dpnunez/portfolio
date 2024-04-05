@@ -7,8 +7,6 @@ import { FramerGlobalConfig } from '@/providers/framer-provider'
 
 import '@/styles/globals.css'
 import '@/styles/prism.css'
-import { getServerSession } from 'next-auth'
-import { NextAuthProvider } from '@/providers/nextauth-provider'
 
 const fontSans = FontSans({
   weight: ['400', '500', '700'],
@@ -21,13 +19,11 @@ export const metadata: Metadata = {
   description: 'Portfolio, blog, and personal website of Daniel Pôrto Núñez',
 }
 
-export default async function RootLayout({
+export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode
 }>) {
-  const session = await getServerSession()
-
   return (
     <html lang="en">
       <body
@@ -36,28 +32,26 @@ export default async function RootLayout({
           fontSans.variable,
         )}
       >
-        <NextAuthProvider session={session}>
-          <FramerGlobalConfig>
-            <ThemeProvider
-              attribute="class"
-              defaultTheme="dark"
-              disableTransitionOnChange
+        <FramerGlobalConfig>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="dark"
+            disableTransitionOnChange
+          >
+            <div
+              className={cn(
+                'w-full min-h-screen h-full flex items-center justify-center',
+              )}
             >
-              <div
-                className={cn(
-                  'w-full min-h-screen h-full flex items-center justify-center',
-                )}
-              >
-                <Editor.Wrapper>
-                  <Editor.Header />
-                  {children}
-                  <Editor.Footer />
-                </Editor.Wrapper>
-              </div>
-            </ThemeProvider>
-            <Toaster richColors />
-          </FramerGlobalConfig>
-        </NextAuthProvider>
+              <Editor.Wrapper>
+                <Editor.Header />
+                {children}
+                <Editor.Footer />
+              </Editor.Wrapper>
+            </div>
+          </ThemeProvider>
+          <Toaster richColors />
+        </FramerGlobalConfig>
       </body>
     </html>
   )
