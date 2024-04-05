@@ -1,6 +1,6 @@
 import { CodeSnippet } from '@/components'
 import { projectsList } from '@/constants/projects'
-import { getPlaceholder } from '@/lib/images'
+import { generatePlaceholder } from '@/lib/images'
 import ky from 'ky'
 import { MDXRemote } from 'next-mdx-remote/rsc'
 import Image from 'next/image'
@@ -20,13 +20,15 @@ export default async function RemoteMdxPage({
   if (!project) throw new Error('Project not found')
 
   const markdown = await ky.get(project.readmeUrl).text()
-  const placeholder = await getPlaceholder(project.image)
+  const { base64: placeholder, src: image } = await generatePlaceholder(
+    project.image,
+  )
 
   return (
     <div className="flex flex-col">
       <Image
         className="aspect-video w-full md:w-[70%] mx-auto rounded-3xl object-cover mb-10"
-        src={project.image}
+        src={image}
         placeholder="blur"
         blurDataURL={placeholder}
         alt={project.title}
@@ -85,7 +87,7 @@ export default async function RemoteMdxPage({
 }
 
 export async function generateStaticParams() {
-  return projectsList.map((post) => ({
-    projectSlug: post.slug,
+  return projectsList.map((project) => ({
+    projectSlug: project.slug,
   }))
 }
