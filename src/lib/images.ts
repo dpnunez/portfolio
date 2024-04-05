@@ -19,6 +19,8 @@ export async function generatePlaceholder(
     }
   } catch {
     return {
+      base64:
+        'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mOsa2yqBwAFCAICLICSyQAAAABJRU5ErkJggg==',
       src: file,
     }
   }
