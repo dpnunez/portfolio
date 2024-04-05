@@ -1,5 +1,5 @@
-'use server'
 import { promises as fs } from 'fs'
+import path from 'path'
 import { getPlaiceholder } from 'plaiceholder'
 
 interface GeneratePlaceholder {
@@ -12,7 +12,8 @@ export async function generatePlaceholder(
 ): Promise<GeneratePlaceholder> {
   'use server'
   try {
-    const buffer = await fs.readFile(`${process.cwd()}/public${file}`)
+    const pathFile = path.join(process.cwd(), 'public', file)
+    const buffer = await fs.readFile(pathFile)
     const plaiceholder = await getPlaiceholder(buffer)
 
     return {
