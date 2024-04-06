@@ -1,6 +1,6 @@
 'use client'
 
-import { CodeSnippet, Editor } from '../../..'
+import { CodeSnippet, Editor } from '@/components'
 import Image from 'next/image'
 import { useSearchParams } from 'next/navigation'
 import { AnimatePresence, motion } from 'framer-motion'
