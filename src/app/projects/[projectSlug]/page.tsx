@@ -25,7 +25,7 @@ export default async function RemoteMdxPage({
   )
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col mb-20">
       <Image
         className="aspect-video w-full md:w-[70%] mx-auto rounded-3xl object-cover mb-10"
         src={image}
