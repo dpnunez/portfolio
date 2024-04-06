@@ -1,9 +1,9 @@
 import { Editor, ProjectsFilter } from '@/components'
 import { Suspense } from 'react'
 
-export default function Page({ children }: { children: React.ReactNode }) {
+export default function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <Suspense fallback={<Editor.Loading />}>
+    <Suspense fallback={<Editor.Loading fullSize />}>
       <Editor.FileTreeSide>
         <ProjectsFilter />
       </Editor.FileTreeSide>
