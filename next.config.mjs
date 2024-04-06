@@ -1,7 +1,6 @@
 
 import remarkGfm from 'remark-gfm'
 import createMDX from '@next/mdx'
-import withPlaceholder from '@plaiceholder/next'
  
 const nextConfig = {
   pageExtensions: ['js', 'jsx', 'mdx', 'ts', 'tsx'],
@@ -23,4 +22,4 @@ const withMDX = createMDX({
 })
 
 
-export default withPlaceholder(withMDX(nextConfig))
+export default withMDX(nextConfig)
