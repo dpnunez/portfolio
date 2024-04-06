@@ -1,5 +1,4 @@
-import { Editor, GuestBookList } from '@/components'
-import { GuestBookForm } from '@/components/forms'
+import { Editor, GuestBookList, GuestBookForm } from '@/components'
 import { api } from '@/lib/api'
 import { GuestBookProvider } from '@/providers/guest-book'
 import { headers } from 'next/headers'

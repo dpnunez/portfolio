@@ -1,4 +1,4 @@
-import { ProjectsList } from '@/components/projectsList'
+import { ProjectsList } from '@/components/routes/projects/list'
 import { Suspense } from 'react'
 
 export default function Page() {

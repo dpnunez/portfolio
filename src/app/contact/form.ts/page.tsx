@@ -1,5 +1,4 @@
-import { Editor, Forms } from '@/components'
-import { CodeSide, FileTreeSide } from '@/components/editor'
+import { Editor, ContactForm } from '@/components'
 import { menu } from '@/constants/data'
 
 export default function Page() {
@@ -7,16 +6,16 @@ export default function Page() {
 
   return (
     <>
-      <FileTreeSide>
+      <Editor.FileTreeSide>
         <Editor.Navigation.FileTreePanelCollapse
           defaultOpen={true}
           title="Contact"
           data={files}
         />
-      </FileTreeSide>
-      <CodeSide>
-        <Forms.ContactForm />
-      </CodeSide>
+      </Editor.FileTreeSide>
+      <Editor.CodeSide>
+        <ContactForm />
+      </Editor.CodeSide>
     </>
   )
 }
