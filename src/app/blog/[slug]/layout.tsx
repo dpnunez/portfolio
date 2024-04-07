@@ -8,7 +8,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <div className="flex justify-between w-full absolute backdrop-blur-lg dark:bg-zinc-950/60 bg-zinc-100/50">
         <Link
           className="flex items-center gap-2 hover:bg-foreground/5 px-4 py-2 rounded-md transition-all m-4"
-          href="/blog"
+          href="/blog/data.sql"
         >
           <ChevronLeftIcon />
           Back
