@@ -1,6 +1,8 @@
 import { Card } from '@/components'
 import { api } from '@/lib/api'
 
+export const dynamic = 'force-dynamic'
+
 export default async function Page() {
   const { data } = await api.get(`api/posts`).json<ResponseApi<Post[]>>()
 
