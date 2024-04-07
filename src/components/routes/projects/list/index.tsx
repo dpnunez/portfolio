@@ -1,12 +1,10 @@
 'use client'
 
-import { CodeSnippet, Editor } from '@/components'
-import Image from 'next/image'
+import { Card, CodeSnippet, Editor } from '@/components'
 import { useSearchParams } from 'next/navigation'
 import { AnimatePresence, motion } from 'framer-motion'
-import { anim, cn } from '@/lib/utils'
+import { anim } from '@/lib/utils'
 import { cardAnim } from './anim'
-import Link from 'next/link'
 import { projectsList } from '@/constants/projects'
 
 export function ProjectsList() {
@@ -58,36 +56,13 @@ function List() {
           key={project.title}
           className="group col-span-1 flex flex-col"
         >
-          <Link href={`/projects/${project.slug}`}>
-            <div className="flex gap-4 mx-2 mb-2">
-              <h3 className="text-pink-500 font-bold">{project.title}</h3>{' '}
-              <span className="opacity-50">{'// extra info'}</span>
-            </div>
-            <div className="rounded-xl overflow-hidden ring-1 ring-foreground/15 group-hover:ring-pink-500 cursor-pointer transition-all flex-1">
-              <div className="aspect-video overflow-hidden border-b border-foreground/15">
-                <Image
-                  className="aspect-video w-full object-cover group-hover:scale-125 transition-transform duration-700"
-                  width={500}
-                  height={500}
-                  src={project.image}
-                  alt={project.title}
-                />
-              </div>
-              <div className="p-4 gap-4 flex flex-col items-start">
-                <p>{project.shortDescription}</p>
-                <div className="flex gap-2">
-                  {project.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className={cn('text-xs bg-foreground/15 p-1 rounded-md')}
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </Link>
+          <Card
+            href={`/projects/${project.slug}`}
+            image={project.image}
+            tags={project.tags}
+            primaryTitle={project.title}
+            secondaryTitle={project.shortDescription}
+          />
         </motion.div>
       ))}
     </AnimatePresence>

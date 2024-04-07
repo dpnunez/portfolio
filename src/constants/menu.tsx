@@ -38,8 +38,8 @@ export const menu: MenuItem[] = [
   },
   {
     label: '/blog.sql',
-    name: 'blog.md',
-    href: '/blog',
+    name: 'blog',
+    href: '/blog/data.sql',
   },
   {
     label: '/guest_book.sql',

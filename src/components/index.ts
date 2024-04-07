@@ -17,6 +17,7 @@ export * from './common/skeleton'
 export * from './common/fileName'
 export * from './common/table'
 export * from './common/checkbox'
+export * from './common/card'
 export * as Editor from './common/editor'
 
 // Routes components export

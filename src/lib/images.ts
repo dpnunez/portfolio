@@ -1,6 +1,6 @@
+import sharp from 'sharp'
 import { promises as fs } from 'fs'
 import path from 'path'
-import sharp from 'sharp'
 
 interface GeneratePlaceholder {
   base64?: string
@@ -11,31 +11,40 @@ function bufferToBase64(buffer: Buffer): string {
   return `data:image/png;base64,${buffer.toString('base64')}`
 }
 
-async function getBufferFromFilePath(file: string): Promise<Buffer> {
-  const pathFile = path.join(process.cwd(), 'public', file)
-  const buffer = await fs.readFile(pathFile)
+async function getFileBufferLocal(filepath: string) {
+  // filepath is file addess exactly how is used in Image component (/ = public/)
+  const realFilepath = path.join(process.cwd(), 'public', filepath)
+  return fs.readFile(realFilepath)
+}
 
-  return buffer
+async function getFileBufferRemote(url: string) {
+  const response = await fetch(url)
+  return Buffer.from(await response.arrayBuffer())
+}
+
+function getFileBuffer(src: string) {
+  const isRemote = src.startsWith('http')
+  return isRemote ? getFileBufferRemote(src) : getFileBufferLocal(src)
 }
 
 export async function generatePlaceholder(
-  file: string,
+  filepath: string,
 ): Promise<GeneratePlaceholder> {
   'use server'
   try {
-    const buffer = await getBufferFromFilePath(file)
-    const resizedBuff = await sharp(buffer).resize(20).toBuffer()
-    const base64 = bufferToBase64(resizedBuff)
-
+    const originalBuffer = await getFileBuffer(filepath)
+    const resizedBuffer = await sharp(originalBuffer).resize(20).toBuffer()
     return {
-      base64,
-      src: file,
+      src: filepath,
+      base64: bufferToBase64(resizedBuffer),
     }
   } catch {
     return {
-      base64:
-        'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mOsa2yqBwAFCAICLICSyQAAAABJRU5ErkJggg==',
-      src: file,
+      src: filepath,
+      base64: solidGrayPlaceholder,
     }
   }
 }
+
+export const solidGrayPlaceholder =
+  'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mOsa2yqBwAFCAICLICSyQAAAABJRU5ErkJggg=='
