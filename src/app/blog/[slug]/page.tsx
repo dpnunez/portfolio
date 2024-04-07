@@ -15,16 +15,18 @@ export default async function Page({ params }: { params: { slug: string } }) {
   )
 
   return (
-    <div>
-      <Image
-        placeholder="blur"
-        blurDataURL={placeholder}
-        className="rounded-3xl mb-4 aspect-video overflow-hidden object-conver"
-        src={thumb}
-        alt={data.title}
-        width={800}
-        height={400}
-      />
+    <div className="mb-20">
+      {thumb && (
+        <Image
+          placeholder="blur"
+          blurDataURL={placeholder}
+          className="rounded-3xl mb-4 aspect-video overflow-hidden object-conver"
+          src={thumb}
+          alt={data.title}
+          width={800}
+          height={400}
+        />
+      )}
       <h1 className="text-4xl font-bold mb-20">{data.title}</h1>
       <MDXRemote
         components={defaultMdxComponents}

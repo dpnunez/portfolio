@@ -1,7 +1,7 @@
 'use client'
 
 import { Skeleton, TableCell, TableRow } from '@/components'
-import { anim } from '@/lib/utils'
+import { anim, generateRandomWidth } from '@/lib/utils'
 import { motion } from 'framer-motion'
 import { contentAnim } from './anim'
 import { memo } from 'react'
@@ -49,7 +49,3 @@ export const Loading = memo(() => {
 })
 
 Loading.displayName = 'Loading'
-
-function generateRandomWidth(min: number, max: number): number {
-  return Math.floor(Math.random() * (max - min + 1) + min)
-}
