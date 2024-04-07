@@ -1,7 +1,7 @@
 export const formStateAnim: AnimVariants = {
   initial: {
     opacity: 0,
-    y: 50,
+    y: 20,
   },
   enter: {
     opacity: 1,
@@ -12,7 +12,7 @@ export const formStateAnim: AnimVariants = {
   },
   exit: {
     opacity: 0,
-    y: -50,
+    y: -20,
     transition: {
       duration: 0.5,
       ease: 'easeInOut',
