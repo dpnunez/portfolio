@@ -4,11 +4,11 @@ import Link from 'next/link'
 import { Skeleton } from '../skeleton'
 
 interface CardProps {
-  primaryTitle?: string
-  secondaryTitle?: string
+  primaryTitle?: React.ReactNode
+  secondaryTitle?: React.ReactNode
   extra?: string
-  image: string
-  href: string
+  image?: string
+  href?: string
   tags?: string[]
 }
 
@@ -20,8 +20,19 @@ export function Card({
   primaryTitle,
   extra,
 }: CardProps) {
+  const Container = ({ children }: { children: React.ReactNode }) => {
+    if (href) {
+      return (
+        <Link href={href} className="flex flex-col group">
+          {children}
+        </Link>
+      )
+    }
+
+    return <div className="flex flex-col group cursor-pointer">{children}</div>
+  }
   return (
-    <Link href={href} className="flex flex-col group">
+    <Container>
       <div className="flex gap-4 mb-2 mx-2">
         <h3 className="text-pink-500 font-bold">{primaryTitle}</h3>{' '}
         {extra && (
@@ -46,7 +57,9 @@ export function Card({
           )}
         </div>
         <div className="p-4 gap-4 flex flex-col items-start">
-          {secondaryTitle && <h3 className="line-clamp-3">{secondaryTitle}</h3>}
+          {secondaryTitle && (
+            <h3 className="line-clamp-3 w-full">{secondaryTitle}</h3>
+          )}
           <div className="flex gap-2">
             {tags
               ? tags.map((tag) => (
@@ -61,6 +74,6 @@ export function Card({
           </div>
         </div>
       </div>
-    </Link>
+    </Container>
   )
 }

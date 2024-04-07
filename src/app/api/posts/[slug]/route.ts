@@ -11,18 +11,21 @@ export async function GET(
     }
   },
 ) {
-  const { slug } = params
+  try {
+    const { slug } = params
 
-  const data = await ky(
-    `https://dev.to/api/articles/${process.env.DEV_TO_USERNAME}/${slug}`,
-    {
-      headers: {
-        'api-key': process.env.DEV_TO_API_KEY,
+    const data = await ky(
+      `https://dev.to/api/articles/${process.env.DEV_TO_USERNAME}/${slug}`,
+    ).json<PostWithContent>()
+
+    return NextResponse.json({
+      data,
+    })
+  } catch {
+    return NextResponse.json({
+      error: {
+        message: 'Post not found',
       },
-    },
-  ).json<PostWithContent>()
-
-  return NextResponse.json({
-    data,
-  })
+    })
+  }
 }

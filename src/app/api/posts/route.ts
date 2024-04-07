@@ -10,9 +10,6 @@ export async function GET() {
           username: process.env.DEV_TO_USERNAME,
           per_page: 1000,
         },
-        headers: {
-          'api-key': process.env.DEV_TO_API_KEY,
-        },
       })
       .json<Post[]>()
 

@@ -8,7 +8,6 @@ declare namespace NodeJS {
     GITHUB_ID: string
     GITHUB_SECRET: string
     AUTH_SECRET: string
-    DEV_TO_API_KEY: string
     NEXT_PUBLIC_API_URL: string
     DEV_TO_USERNAME: string
   }
