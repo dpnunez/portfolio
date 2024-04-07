@@ -43,7 +43,7 @@ function FormInsert({ onSuccess }: FormInsertProps) {
 
       toast.success('Signature sent successfully!')
       addGuest(insertedData)
-      onSuccess(true)
+      onSuccess(false)
       methods.reset()
     } catch (err) {
       apiErrorToast(err)
