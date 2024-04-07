@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { ToggleTheme, Editor } from '@/components'
-import { menu } from '@/constants/data'
+import { menu } from '@/constants/menu'
 
 export function Header() {
   return (

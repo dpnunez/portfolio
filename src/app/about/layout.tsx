@@ -1,5 +1,5 @@
 import { Editor } from '@/components'
-import { menu } from '@/constants/data'
+import { menu } from '@/constants/menu'
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   const subitems = menu.find((item) => item.name === '/about')?.subItems ?? []

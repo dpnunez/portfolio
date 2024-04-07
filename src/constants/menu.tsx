@@ -5,7 +5,7 @@ import { SiTypescript } from 'react-icons/si'
 
 export const menu: MenuItem[] = [
   {
-    label: 'About',
+    label: '/about',
     name: '/about',
     href: '/about/profile.ts',
     subItems: [
@@ -32,22 +32,22 @@ export const menu: MenuItem[] = [
     ],
   },
   {
-    label: 'Projects',
+    label: '/projects.sql',
     name: '/projects',
     href: '/projects/data.sql',
   },
   {
-    label: 'Blog',
+    label: '/blog.sql',
     name: 'blog.md',
     href: '/blog',
   },
   {
-    label: 'Guest Book',
+    label: '/guest_book.sql',
     name: 'guest-book',
     href: '/guest-book/data.sql',
   },
   {
-    label: 'Contact',
+    label: '/contact.ts',
     name: '/contact',
     href: '/contact/form.ts',
     subItems: [

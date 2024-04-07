@@ -17,7 +17,7 @@ export function Desktop({ items }: DesktopNavigationProps) {
     <nav className="flex items-center h-full overflow-auto">
       {items.map((item, index) => (
         <MenuItem key={index} href={item.href} name={item.name}>
-          {item.name}
+          {item.label}
         </MenuItem>
       ))}
     </nav>
