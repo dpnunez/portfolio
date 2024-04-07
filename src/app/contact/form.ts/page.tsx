@@ -1,5 +1,5 @@
 import { Editor, ContactForm } from '@/components'
-import { menu } from '@/constants/data'
+import { menu } from '@/constants/menu'
 
 export default function Page() {
   const files = menu.find((e) => e.name === '/contact')?.subItems ?? []
