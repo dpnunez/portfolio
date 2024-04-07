@@ -23,6 +23,22 @@ declare global {
     tags: string[]
   }
 
+  type Post = {
+    title: string
+    description: string
+    slug: string
+    isDraft: boolean
+    published_at: string
+    published: boolean
+    externalUrl: string
+    url: string
+    cover_image: string
+  }
+
+  type PostWithContent = Post & {
+    body_markdown: string
+  }
+
   interface turnstileOpts {
     sitekey: string
     callback: (token: string) => void
