@@ -3,19 +3,14 @@ import { NextResponse } from 'next/server'
 
 export async function GET() {
   try {
-    // change to /me to get the current user posts
     const res = await ky
-      .get('https://dev.to/api/articles/me', {
+      .get('https://dev.to/api/articles', {
         searchParams: {
+          username: process.env.DEV_TO_USERNAME,
           per_page: 1000,
-        },
-        headers: {
-          'api-key': process.env.DEV_TO_API_KEY,
         },
       })
       .json<Post[]>()
-
-    console.log(res)
 
     const posts = res.map((post) => ({
       title: post.title,
