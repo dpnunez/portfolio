@@ -18,6 +18,7 @@ export * from './common/fileName'
 export * from './common/table'
 export * from './common/checkbox'
 export * from './common/card'
+export * from './common/poppover'
 export * as Editor from './common/editor'
 
 // Routes components export
