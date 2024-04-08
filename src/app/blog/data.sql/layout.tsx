@@ -3,7 +3,7 @@ import { InfoCircledIcon } from '@radix-ui/react-icons'
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <Editor.CodeSide fullSize className="flex-col md:p-20 p-5 pt-10">
+    <Editor.CodeSide fullSize className="flex-col md:p-20 md:pt-10 p-5 pt-10">
       <Editor.EnterCode>
         <div className="flex flex-col md:flex-row justify-between items-center mb-20">
           <h1 className="text-4xl font-bold">Posts</h1>
