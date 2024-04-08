@@ -3,7 +3,6 @@ import { NextResponse } from 'next/server'
 
 export async function GET() {
   try {
-    // change to /me to get the current user posts
     const res = await ky
       .get('https://dev.to/api/articles', {
         searchParams: {

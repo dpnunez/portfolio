@@ -20,11 +20,11 @@ export default async function Page({ params }: { params: { slug: string } }) {
         <Image
           placeholder="blur"
           blurDataURL={placeholder}
-          className="rounded-3xl mb-4 aspect-video overflow-hidden object-conver"
+          className="rounded-3xl mb-4 aspect-video overflow-hidden object-cover"
           src={thumb}
           alt={data.title}
-          width={800}
-          height={400}
+          width={1000}
+          height={1000}
         />
       )}
       <h1 className="text-4xl font-bold mb-20">{data.title}</h1>

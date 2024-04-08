@@ -4,6 +4,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { ReactNode } from 'react'
 import { CiLink } from 'react-icons/ci'
+import { cn } from '@/lib/utils'
 
 const toSlug = (text: string) =>
   text
@@ -11,20 +12,23 @@ const toSlug = (text: string) =>
     .replace(/[^\w ]+/g, '')
     .replace(/ +/g, '-')
 
-const InjectAnchor = ({ children }: { children: ReactNode }) => {
+const InjectAnchor = ({
+  children,
+  className,
+}: {
+  children: ReactNode
+  className?: string
+}) => {
   const id = toSlug(extractChildrenText(children))
   return (
-    <div
-      id={id}
-      className="flex title-index relative h-10 items-center group mt-20"
-    >
+    <div id={id} className={cn('flex relative items-center group', className)}>
+      {children}
       <Link
         href={`#${id}`}
-        className="absolute w-10 h-10 -left-12 group-hover:opacity-100 opacity-0 transition-opacity"
+        className="pl-4 aspect-square flex items-center justify-center group-hover:opacity-100 opacity-0 transition-opacity"
       >
-        <CiLink className="w-10 h-10 " />
+        <CiLink className="w-7 h-7" />
       </Link>
-      {children}
     </div>
   )
 }
@@ -43,15 +47,26 @@ function extractChildrenText(children: any): string {
 
 export const defaultMdxComponents: MDXComponents = {
   h1: ({ children }) => (
-    <InjectAnchor>
-      <h1 className="text-3xl font-bold my-4">{children}</h1>
+    <InjectAnchor className="mb-5 mt-10">
+      <h1 className="text-3xl font-bold">{children}</h1>
     </InjectAnchor>
   ),
   h2: ({ children }) => (
-    <InjectAnchor>
-      <h2 className="text-2xl font-bold my-3">{children}</h2>
+    <InjectAnchor className="mb-3 mt-10">
+      <h2 className="text-2xl font-bold">{children}</h2>
     </InjectAnchor>
   ),
+  h3: ({ children }) => (
+    <InjectAnchor className="mb-2 mt-5">
+      <h3 className="text-xl font-bold">{children}</h3>
+    </InjectAnchor>
+  ),
+  h4: ({ children }) => (
+    <InjectAnchor className="mb-2 mt-5">
+      <h4 className="text-lg font-bold">{children}</h4>
+    </InjectAnchor>
+  ),
+  p: ({ children }) => <p className="my-4">{children}</p>,
   a: ({ children, href }) => (
     <Link
       href={href as string}
@@ -77,7 +92,7 @@ export const defaultMdxComponents: MDXComponents = {
     const { children, className } = props
     const match = /language-(\w+)/.exec(className || '')
     return match ? (
-      <div className="p-4 bg-foreground/5 rounded-xl my-5">
+      <div className="p-4 bg-foreground/5 rounded-xl my-5 overflow-auto">
         <CodeSnippet language={match[1]}>
           {String(children).replace(/\n$/, '')}
         </CodeSnippet>
