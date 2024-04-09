@@ -1,30 +1,32 @@
-import { FaLinkedin } from 'react-icons/fa'
+import { FaReact, FaNodeJs } from 'react-icons/fa'
+import { SiElixir } from 'react-icons/si'
+import { PiDotsSixFill } from 'react-icons/pi'
 
 export const projectsTypes: ProjectTag[] = [
   {
     label: 'React',
     name: 'react',
-    icon: <FaLinkedin />,
+    icon: <FaReact />,
   },
   {
     label: 'React Native',
     name: 'react-native',
-    icon: <FaLinkedin />,
+    icon: <FaReact />,
   },
   {
     label: 'Node.js',
     name: 'node',
-    icon: <FaLinkedin />,
-  },
-  {
-    label: 'Others',
-    name: 'others',
-    icon: <FaLinkedin />,
+    icon: <FaNodeJs />,
   },
   {
     label: 'Elixir',
     name: 'elixir',
-    icon: <FaLinkedin />,
+    icon: <SiElixir />,
+  },
+  {
+    label: 'Others',
+    name: 'others',
+    icon: <PiDotsSixFill />,
   },
 ]
 
