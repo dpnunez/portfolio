@@ -35,7 +35,7 @@ export const projectsList: Project[] = [
   {
     title: 'Portfolio',
     slug: 'portfolio',
-    image: '/projects/portfolio/original.jpeg',
+    image: '/images/projects/portfolio/original.jpeg',
     readmeUrl:
       'https://raw.githubusercontent.com/dpnunez/portfolio/main/README.md',
     githubLink: repoLink,

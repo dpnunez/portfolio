@@ -17,6 +17,16 @@ const fontSans = FontSans({
 export const metadata: Metadata = {
   title: 'Daniel P. Núñez',
   description: 'Portfolio, blog, and personal website of Daniel Pôrto Núñez',
+  icons: [
+    {
+      url: '/images/favIcon/dark/favicon.ico',
+      media: '(prefers-color-scheme: dark)',
+    },
+    {
+      url: '/images/favIcon/light/favicon.ico',
+      media: '(prefers-color-scheme: light)',
+    },
+  ],
 }
 
 export default function RootLayout({
