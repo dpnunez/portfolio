@@ -40,3 +40,17 @@ export default async function Page({ params }: { params: { slug: string } }) {
     </div>
   )
 }
+
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string }
+}) {
+  const { data } = await api
+    .get(`api/posts/${params.slug}`)
+    .json<ResponseApi<PostWithContent>>()
+
+  return {
+    title: data.title,
+  }
+}

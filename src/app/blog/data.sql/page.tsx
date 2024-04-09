@@ -1,7 +1,12 @@
 import { Card } from '@/components'
 import { api } from '@/lib/api'
+import type { Metadata } from 'next'
 
 export const dynamic = 'force-dynamic'
+
+export const metadata: Metadata = {
+  title: '~/blog/data.sql',
+}
 
 export default async function Page() {
   const { data } = await api.get(`api/posts`).json<ResponseApi<Post[]>>()
