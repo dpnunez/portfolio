@@ -1,6 +1,7 @@
 import { FaReact, FaNodeJs } from 'react-icons/fa'
 import { SiElixir } from 'react-icons/si'
 import { PiDotsSixFill } from 'react-icons/pi'
+import { repoLink } from './content'
 
 export const projectsTypes: ProjectTag[] = [
   {
@@ -37,9 +38,9 @@ export const projectsList: Project[] = [
     image: '/projects/portfolio/original.jpeg',
     readmeUrl:
       'https://raw.githubusercontent.com/dpnunez/portfolio/main/README.md',
-    githubLink: 'https://github.com/dpnunez/portfolio',
+    githubLink: repoLink,
     shortDescription: 'A personal portfolio made with Next.js and TypeScript.',
-    link: 'https://github.com/dpnunez/portfolio',
+    link: repoLink,
     tags: ['react', 'node'],
   },
 ]
