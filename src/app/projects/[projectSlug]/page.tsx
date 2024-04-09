@@ -56,3 +56,20 @@ export async function generateStaticParams() {
     projectSlug: project.slug,
   }))
 }
+
+export function generateMetadata({
+  params,
+}: {
+  params: {
+    projectSlug: string
+  }
+}) {
+  const project = projectsList.find(
+    (project) => project.slug === params.projectSlug,
+  )
+  if (!project) throw new Error('Project not found')
+
+  return {
+    title: 'Projects: ' + project.title,
+  }
+}
