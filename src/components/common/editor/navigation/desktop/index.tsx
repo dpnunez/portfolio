@@ -46,7 +46,7 @@ function MenuItem({
       >
         <Link
           className={cn(
-            'opacity-60 transition-opacity duration-200 hover:opacity-100 px-6',
+            'opacity-60 transition-opacity duration-200 hover:opacity-100 h-full flex items-center px-6',
             {
               'opacity-100': isActive,
             },
