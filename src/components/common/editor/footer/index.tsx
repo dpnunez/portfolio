@@ -1,10 +1,10 @@
 import {
   CrossCircledIcon,
   ExclamationTriangleIcon,
-  GitHubLogoIcon,
 } from '@radix-ui/react-icons'
 import { Editor, Separator } from '@/components'
 import { FooterItem } from './footerItem'
+import { GitSection } from './gitRemote'
 
 export function Footer() {
   return (
@@ -13,10 +13,7 @@ export function Footer() {
       fullSize
     >
       <div className="flex items-center h-full">
-        <FooterItem>
-          <GitHubLogoIcon />
-          <span>main</span>
-        </FooterItem>
+        <GitSection />
         <Separator orientation="vertical" />
         <FooterItem>
           <ExclamationTriangleIcon />

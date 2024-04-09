@@ -119,3 +119,5 @@ export const contactData = {
   )
 }`,
 }
+
+export const repoLink = 'https://github.com/dpnunez/portfolio'

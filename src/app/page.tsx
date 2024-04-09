@@ -2,6 +2,7 @@ import { ASCII, Editor } from '@/components'
 import { PrismLight } from 'react-syntax-highlighter'
 import Link from 'next/link'
 import { computerAscii } from '@/constants/ascii'
+import { repoLink } from '@/constants/content'
 
 export default function Page() {
   return (
@@ -21,12 +22,12 @@ export default function Page() {
           </span>
         </h2>
 
-        <Link target="_blank" href="https://github.com/dpnunez/portfolio">
+        <Link target="_blank" href={repoLink}>
           <PrismLight
             className="!bg-transparent hidden md:block"
             language="javascript"
           >
-            {`// fell free to access the code of this page in my github\nconst url = "https://github.com/dpnunez/portfolio"`}
+            {`// fell free to access the code of this page in my github\nconst url = "${repoLink}"`}
           </PrismLight>
         </Link>
         <ASCII className="absolute top-0 left-0 opacity-5 max-w-full max-h-full">
