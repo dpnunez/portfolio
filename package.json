@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint --fix --ext .ts,.tsx .",
-    "test": "vitest"
+    "test": "vitest",
+    "prepare": "husky",
+    "commit": "git-cz"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.3.4",
@@ -49,6 +51,8 @@
     "zod": "^3.22.4"
   },
   "devDependencies": {
+    "@commitlint/cli": "^19.2.1",
+    "@commitlint/config-conventional": "^19.1.0",
     "@rocketseat/eslint-config": "^2.2.2",
     "@testing-library/react": "^14.2.2",
     "@types/node": "^20",
@@ -59,13 +63,21 @@
     "@vitejs/plugin-react": "^4.2.1",
     "@vitest/ui": "^1.4.0",
     "autoprefixer": "^10.0.1",
+    "commitizen": "^4.3.0",
+    "cz-conventional-changelog": "^3.3.0",
     "eslint": "^8.57.0",
     "eslint-config-next": "14.1.4",
+    "husky": "^9.0.11",
     "jsdom": "^24.0.0",
     "postcss": "^8",
     "prisma": "^5.11.0",
     "tailwindcss": "^3.3.0",
     "typescript": "^5",
     "vitest": "^1.4.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }
