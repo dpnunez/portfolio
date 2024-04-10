@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { GoogleTagManager } from '@next/third-parties/google'
 import { Fira_Mono as FontSans } from 'next/font/google'
 import { Editor, Toaster } from '@/components'
 import { cn } from '@/lib/utils'
@@ -42,6 +43,7 @@ export default function RootLayout({
           fontSans.variable,
         )}
       >
+        <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM} />
         <FramerGlobalConfig>
           <ThemeProvider
             attribute="class"
