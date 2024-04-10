@@ -35,7 +35,7 @@ export default async function RemoteMdxPage({
         height={400}
       />
 
-      <h1 className="hover:text-pink-500 transition-colors text-3xl font-bold mx-auto block mb-20">
+      <h1 className="hover:text-editor-primary transition-colors text-3xl font-bold mx-auto block mb-20">
         {project.title}
       </h1>
       <MDXRemote

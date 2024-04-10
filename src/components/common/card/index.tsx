@@ -34,7 +34,7 @@ export function Card({
   return (
     <Container>
       <div className="flex gap-4 mb-2 mx-2">
-        <h3 className="text-pink-500 font-bold">{primaryTitle}</h3>{' '}
+        <h3 className="text-editor-primary font-bold">{primaryTitle}</h3>{' '}
         {extra && (
           <span className="opacity-50">
             {'// '}
@@ -42,7 +42,7 @@ export function Card({
           </span>
         )}
       </div>
-      <div className="rounded-xl overflow-hidden ring-1 ring-foreground/15 group-hover:ring-pink-500 cursor-pointer transition-all flex-1">
+      <div className="rounded-xl overflow-hidden ring-1 ring-foreground/15 group-hover:ring-editor-primary cursor-pointer transition-all flex-1">
         <div className="aspect-video overflow-hidden border-b border-foreground/15">
           {image ? (
             <Image

@@ -8,8 +8,8 @@ export function Header() {
       <Editor.FileTreeSide className="flex items-center justify-center border-b dark:border-white/10 border-zinc-500/30 relative">
         <Link href="/">
           <h1 className="text-lg group">
-            <span className="text-pink-500 font-bold">whoami</span>
-            <span className="opacity-60 italic group-hover:opacity-100 group-hover:text-emerald-500 group-hover:font-bold transition-all">
+            <span className="text-editor-primary font-bold">whoami</span>
+            <span className="opacity-60 italic group-hover:opacity-100 group-hover:text-editor-secondary group-hover:font-bold transition-all">
               {' > '}dpnunez
             </span>
           </h1>
