@@ -23,6 +23,13 @@ declare global {
     tags: string[]
   }
 
+  type SignedStatus =
+    | 'previus-signed'
+    | 'just-signed'
+    | 'not-signed'
+    | 'loading'
+    | 'error'
+
   type Post = {
     title: string
     description: string
