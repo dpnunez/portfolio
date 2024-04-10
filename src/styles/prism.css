@@ -318,6 +318,10 @@
      opacity: 0.8;
  }
 
+ .linenumber {
+    opacity: 0.35 !important;
+ }
+
  :root {
      --color-fg-default: #c9d1d9;
      --color-bg-code-block: #161b22;
