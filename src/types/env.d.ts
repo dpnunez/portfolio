@@ -10,5 +10,6 @@ declare namespace NodeJS {
     AUTH_SECRET: string
     NEXT_PUBLIC_API_URL: string
     DEV_TO_USERNAME: string
+    NEXT_PUBLIC_GTM: string
   }
 }
