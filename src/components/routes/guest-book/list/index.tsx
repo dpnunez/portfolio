@@ -6,6 +6,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { anim } from '@/lib/utils'
 import { contentAnim, counterAnim } from './anim'
 import {
+  Button,
   FileName,
   Table,
   TableCell,
@@ -15,6 +16,8 @@ import {
 } from '@/components'
 import { FaDatabase } from 'react-icons/fa'
 import Link from 'next/link'
+import { useSession } from 'next-auth/react'
+import { TrashIcon } from '@radix-ui/react-icons'
 
 function Header() {
   const { guestList } = useGuestBook()
@@ -81,7 +84,10 @@ function List() {
 }
 
 function ListBody() {
-  const { guestList } = useGuestBook()
+  const { guestList, deleteGuest } = useGuestBook()
+  const { data } = useSession()
+  const username = data?.user?.username
+
   return (
     <motion.tbody
       {...anim({
@@ -90,16 +96,28 @@ function ListBody() {
       className="[&_tr:last-child]:border-0"
     >
       {guestList?.map((guest) => (
-        <TableRow key={guest.id} className="h-10">
+        <TableRow key={guest.id} className="h-10 group">
           <TableCell className="font-medium">
             <Link href={`https://github.com/${guest.id}`} target="_blank">
               {guest.id}
             </Link>
           </TableCell>
           <TableCell>{guest.message}</TableCell>
-          <TableCell className="text-right text-nowrap p-0">
-            <div className="bg-foreground/5 p-1 px-3 rounded-xl">
-              {guest.createdAt}
+          <TableCell className="text-right text-nowrap p-0 overflow-auto">
+            <div className="flex items-center gap-4">
+              <div className="bg-foreground/5 p-1 px-3 rounded-xl">
+                {guest.createdAt}
+              </div>
+              {guest.id === username && (
+                <Button
+                  size="icon"
+                  className="opacity-40 group-hover:opacity-100"
+                  variant="destructive"
+                  onClick={deleteGuest}
+                >
+                  <TrashIcon />
+                </Button>
+              )}
             </div>
           </TableCell>
         </TableRow>

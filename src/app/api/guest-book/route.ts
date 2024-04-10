@@ -61,6 +61,47 @@ export async function POST(req: Request) {
   return NextResponse.json({ message: 'Email sent' })
 }
 
+export async function DELETE() {
+  const session = await getServerSession(authOptions)
+
+  if (!session)
+    return NextResponse.json(
+      {
+        error: {
+          message: 'Please sign in with github to continue',
+        },
+      },
+      {
+        status: 401,
+      },
+    )
+
+  const githubUsername = session.user.username
+
+  try {
+    await prisma.bookGuest.delete({
+      where: {
+        id: githubUsername,
+      },
+    })
+
+    return NextResponse.json({
+      data: {
+        id: githubUsername,
+      },
+    })
+  } catch {
+    return NextResponse.json(
+      {
+        error: {
+          message: 'Error deleting your message',
+        },
+      },
+      { status: 500 },
+    )
+  }
+}
+
 export async function GET() {
   const messages = await prisma.bookGuest.findMany()
 

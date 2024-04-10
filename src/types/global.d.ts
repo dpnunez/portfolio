@@ -23,6 +23,8 @@ declare global {
     tags: string[]
   }
 
+  type SignedStatus = 'previus-signed' | 'just-signed' | 'not-signed'
+
   type Post = {
     title: string
     description: string
