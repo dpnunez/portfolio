@@ -6,7 +6,9 @@ export default function Page() {
       <p className="text-2xl italic font-bold text-editor-primary opacity-50">
         File not found
       </p>
-      <p className="text-8xl italic font-bold text-editor-primary opacity-50">404</p>
+      <p className="text-8xl italic font-bold text-editor-primary opacity-50">
+        404
+      </p>
     </Editor.CodeSide>
   )
 }
