@@ -77,7 +77,7 @@ function List() {
       </TableHeader>
 
       <AnimatePresence mode="wait" initial={false}>
-        {loading ? <Loading key="loading" /> : <ListBody key="content" />}
+        {loading.list ? <Loading key="loading" /> : <ListBody key="content" />}
       </AnimatePresence>
     </Table>
   )

@@ -1,6 +1,6 @@
 'use client'
-import { api, apiFetcher } from '@/lib/api'
-import React, { createContext, useContext } from 'react'
+import { api, apiErrorToast, apiFetcher } from '@/lib/api'
+import React, { createContext, useContext, useEffect, useState } from 'react'
 import { toast } from 'sonner'
 import useSWR from 'swr'
 
@@ -16,18 +16,22 @@ type DeleteResponse = {
 
 interface GuestBookContextType {
   guestList?: GuestData[]
-  loading: boolean
-  addGuest: (guest: GuestData) => void
+  loading: {
+    list: boolean
+  }
+  addGuest: (message: string, cb: () => void) => void
   deleteGuest: () => void
-  hasSigned: boolean
+  status: SignedStatus
 }
 
 export const GuestBookContext = createContext<GuestBookContextType>({
   guestList: undefined,
-  loading: true,
+  loading: {
+    list: false,
+  },
   deleteGuest: () => {},
   addGuest: () => {},
-  hasSigned: false,
+  status: 'loading',
 })
 
 export const useGuestBook = (): GuestBookContextType => {
@@ -39,21 +43,44 @@ export const useGuestBook = (): GuestBookContextType => {
 }
 
 export function GuestBookProvider({ children }: { children: React.ReactNode }) {
+  const [status, setStatus] = useState<SignedStatus>('loading')
+
   const {
     data,
     mutate,
     isLoading: isLoadingList,
   } = useSWR('api/guest-book', apiFetcher<GuestData[]>)
 
-  const { data: canWrite, isLoading: isLoadingVerify } = useSWR(
-    'api/guest-book/can-write',
-    apiFetcher<boolean>,
-  )
+  useEffect(() => {
+    api
+      .get('api/guest-book/can-write')
+      .json<ResponseApi<boolean>>()
+      .then((res) => {
+        const canWrite = res.data
+        setStatus(canWrite ? 'not-signed' : 'previus-signed')
+      })
+      .catch(() => {
+        setStatus('error')
+      })
+  }, [])
 
-  const hasSigned = canWrite === false
+  const addGuest = async (message: string, cb: () => void) => {
+    try {
+      const { data: insertedData } = await api
+        .post('api/guest-book', {
+          json: {
+            message,
+          },
+        })
+        .json<ResponseApi<GuestEntry>>()
 
-  const addGuest = (data: GuestData) => {
-    mutate((old) => [data, ...(old || [])], false)
+      toast.success('Signature sent successfully!')
+      mutate((old) => [insertedData, ...(old || [])], false)
+      setStatus('just-signed')
+      cb()
+    } catch (err) {
+      apiErrorToast(err)
+    }
   }
 
   const deleteGuest = async () => {
@@ -62,21 +89,22 @@ export function GuestBookProvider({ children }: { children: React.ReactNode }) {
         .delete('api/guest-book')
         .json<ResponseApi<DeleteResponse>>()
       mutate((old) => old?.filter((g) => g.id !== data.id), false)
+      setStatus('not-signed')
       toast.success('Entry deleted')
     } catch {
       toast.error('Failed to delete guest')
     }
   }
 
-  const isLoading = isLoadingList || isLoadingVerify
-
   return (
     <GuestBookContext.Provider
       value={{
         guestList: data,
-        hasSigned,
         addGuest,
-        loading: isLoading,
+        loading: {
+          list: isLoadingList,
+        },
+        status,
         deleteGuest,
       }}
     >
