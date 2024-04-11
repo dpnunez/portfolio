@@ -13,6 +13,7 @@ import {
   FormLabel,
   FormMessage,
   Input,
+  Separator,
   Spinner,
   Textarea,
 } from '@/components'
@@ -39,7 +40,7 @@ export function ContactForm() {
   })
 
   return (
-    <Editor.EnterCode className="m-10 flex">
+    <Editor.EnterCode className="m-4 md:m-10 flex h-auto">
       <Form {...methods}>
         <div className="flex-1">
           <h1 className="text-xl md:text-3xl font-bold mb-8">
@@ -51,7 +52,7 @@ export function ContactForm() {
             </div>
           </div>
         </div>
-        <div className="items-center justify-center flex-1 hidden md:flex">
+        <div className="items-start justify-center flex-1 hidden md:flex">
           <ReqViwer />
         </div>
       </Form>
@@ -126,7 +127,7 @@ function FormSection() {
         )}
       />
 
-      <div className="flex justify-between w-full items-end flex-col md:flex-row">
+      <div className="flex justify-between w-full items-start md:items-end flex-col md:flex-row">
         <Captcha onChange={setTokenCaptcha} />
 
         <Button
@@ -148,11 +149,12 @@ function ReqViwer() {
   const values = watch()
 
   return (
-    <div className="rounded-xl bg-foreground/5 p-3 flex flex-col">
-      <FileName className="mb-4 ml-6" icon={<SiTypescript />}>
+    <div className="rounded-xl bg-foreground/5 flex flex-col overflow-hidden max-h-full">
+      <FileName className="py-3 pl-6" icon={<SiTypescript />}>
         contact.ts
       </FileName>
-      <CodeSnippet>
+      <Separator />
+      <CodeSnippet className="flex-1 overflow-auto px-2 pt-3 mb-3">
         {contactData.req(values.name, values.email, values.message)}
       </CodeSnippet>
     </div>

@@ -5,6 +5,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import Script from 'next/script'
 import { Dispatch, SetStateAction, useEffect, useState } from 'react'
 import { statusAnim } from './anim'
+import { ClassValue } from 'clsx'
 
 interface CaptchaProps {
   onChange: Dispatch<SetStateAction<string>>
@@ -37,6 +38,12 @@ export function Captcha({ onChange }: CaptchaProps) {
     }
   }, [onChange])
 
+  const pingStyle = {
+    'bg-orange-600': status === 'running',
+    'bg-green-500': status === 'protected',
+    'bg-red-500': status === 'error',
+  } as ClassValue
+
   return (
     <>
       <Script
@@ -61,23 +68,10 @@ export function Captcha({ onChange }: CaptchaProps) {
         }}
       />
       <div className="flex gap-2 items-center">
-        {/* <div>{renderStatusPing}</div> */}
-
-        <StatusPing
-          className={cn({
-            'bg-orange-600': status === 'running',
-            'bg-green-500': status === 'protected',
-            'bg-red-500': status === 'error',
-          })}
-        />
-        <StatusPing
-          ping
-          className={cn({
-            'bg-orange-600': status === 'running',
-            'bg-green-500': status === 'protected',
-            'bg-red-500': status === 'error',
-          })}
-        />
+        <div className="relative flex items-center">
+          <StatusPing className={cn(pingStyle)} />
+          <StatusPing ping className={cn(pingStyle)} />
+        </div>
         <span className="text-small opacity-65 flex items-center">
           <AnimatePresence mode="wait" initial={false}>
             <motion.span
