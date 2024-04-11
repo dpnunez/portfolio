@@ -7,7 +7,7 @@ import { ThemeProvider } from '@/providers/theme-provider'
 import { FramerGlobalConfig } from '@/providers/framer-provider'
 
 import '@/styles/globals.css'
-import '@/styles/prism.css'
+import '@/styles/prism/common.css'
 
 const fontSans = FontSans({
   weight: ['400', '500', '700'],
