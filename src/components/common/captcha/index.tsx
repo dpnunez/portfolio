@@ -68,7 +68,6 @@ export function Captcha({ onChange }: CaptchaProps) {
         }}
       />
       <div className="flex gap-2 items-center">
-        {/* <div>{renderStatusPing}</div> */}
         <div className="relative flex items-center">
           <StatusPing className={cn(pingStyle)} />
           <StatusPing ping className={cn(pingStyle)} />
