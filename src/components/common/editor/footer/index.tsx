@@ -9,7 +9,7 @@ import { GitSection } from './gitRemote'
 export function Footer() {
   return (
     <Editor.FileTreeSide
-      className="border-t dark:border-white/10 border-zinc-500/30 row-start-3 flex items-start"
+      className="border-t border-editor-divider row-start-3 flex items-start"
       fullSize
     >
       <div className="flex items-center h-full">

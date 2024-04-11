@@ -33,6 +33,13 @@
     --ring: 240 10% 3.9%;
 
     --radius: 0.5rem;
+
+    --editor-code-background: theme("colors.zinc.50");
+    --editor-file-background: theme("colors.zinc.100");
+    --editor-divider: theme("colors.zinc.300");
+
+    --editor-text-primary: #cf222e;
+    --editor-text-secondary: #0550ae;
   }
 
   .dark {
@@ -63,7 +70,16 @@
     --border: 240 3.7% 15.9%;
     --input: 240 3.7% 15.9%;
     --ring: 240 4.9% 83.9%;
+
+    --editor-code-background: theme("colors.black");
+    --editor-file-background: theme("colors.zinc.950");;
+    --editor-divider: theme("colors.zinc.800");;
+
+    --editor-text-primary: #fd5347;
+    --editor-text-secondary: #89c0f0;
   }
+
+
 }
 
 @layer base {
