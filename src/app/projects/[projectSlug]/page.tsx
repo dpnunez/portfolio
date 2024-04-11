@@ -71,5 +71,6 @@ export function generateMetadata({
 
   return {
     title: 'Projects: ' + project.title,
+    description: project.shortDescription,
   }
 }
