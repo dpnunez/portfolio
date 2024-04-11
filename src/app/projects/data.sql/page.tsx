@@ -1,5 +1,4 @@
 import { ProjectsList } from '@/components/routes/projects/list'
-import { Suspense } from 'react'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -7,9 +6,5 @@ export const metadata: Metadata = {
 }
 
 export default function Page() {
-  return (
-    <Suspense fallback={<div>loading</div>}>
-      <ProjectsList />
-    </Suspense>
-  )
+  return <ProjectsList />
 }
