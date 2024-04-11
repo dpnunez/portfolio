@@ -19,7 +19,6 @@ declare global {
     shortDescription: string
     readmeUrl: string
     githubLink: string
-    link: string
     tags: string[]
   }
 
