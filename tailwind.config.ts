@@ -35,8 +35,13 @@ const config = {
       },
       colors: {
         editor: {
-          primary: '#fd5347',
-          secondary: '#89c0f0',
+          primary: 'var(--editor-text-primary)',
+          secondary: 'var(--editor-text-secondary)',
+          background: {
+            primary: 'var(--editor-code-background)',
+            secondary: 'var(--editor-file-background)',
+          },
+          divider: 'var(--editor-divider)',
         },
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',

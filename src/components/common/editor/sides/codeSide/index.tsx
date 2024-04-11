@@ -14,7 +14,7 @@ export function CodeSide({
   return (
     <div
       className={cn(
-        'dark:bg-zinc-950 bg-zinc-100/90 max-w-full overflow-auto flex px-2 py-5',
+        'bg-editor-background-primary max-w-full overflow-auto flex px-2 py-5',
         { 'md:col-span-3': !fullSize, 'md:col-span-4': fullSize },
         className,
       )}
