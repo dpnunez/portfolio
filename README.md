@@ -1,7 +1,7 @@
 # Portfolio
 Welcome to my portfolio application! This project serves as a showcase of my skills, experiences, and projects. It's designed to provide visitors with insights into my background, expertise, and the work I've done. Inspired by the design of a code editor, my portfolio features a sleek and minimalist interface, reminiscent of a developer's workspace.
 
-I owe a debt of gratitude to two individuals whose contributions were instrumental in shaping this project. Firstly, [Yanka Darelova](https://www.behance.net/darelova) deserves recognition for her invaluable ideas and layouts showcased on her Behance profile, which served as essential inspiration for the composition of this project. Secondly, [Jerome Hardway's](https://github.com/jeromehardaway/) technical insights and branding ideas were pivotal in the development of this portfolio, contributing diverse perspectives that enhanced both its functionality and aesthetic appeal.
+I'd like to express my gratitude to two individuals who played significant roles in this project. Firstly, [Yanka Darelova](https://www.behance.net/darelova) deserves recognition for her invaluable ideas and layouts showcased on her Behance profile, which served as essential inspiration for the composition of this project. Secondly, [Jerome Hardway's](https://github.com/jeromehardaway/) technical insights and branding ideas were pivotal in the development of this portfolio, contributing diverse perspectives that enhanced both its functionality and aesthetic appeal.
 
 
 
