@@ -18,6 +18,10 @@ const fontSans = FontSans({
 export const metadata: Metadata = {
   title: 'Daniel P. Núñez',
   description: 'Portfolio, blog, and personal website of Daniel Pôrto Núñez',
+  openGraph: {
+    images:
+      'https://qjkihecfhfmcmnyaykfr.supabase.co/storage/v1/object/public/images/og.png',
+  },
   icons: [
     {
       url: '/images/favIcon/dark/favicon.ico',
