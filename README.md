@@ -1,3 +1,6 @@
+# Portfolio
+Welcome to my portfolio application! This project serves as a showcase of my skills, experiences, and projects. It's designed to provide visitors with insights into my background, expertise, and the work I've done.
+
 ### Stack
 
 - [**Next.js**](https://nextjs.org/): Next.js is a React framework that enables server-side rendering, static site generation, and other optimizations out of the box. It provides a smooth development experience and excellent performance for web applications.
