@@ -1,11 +1,16 @@
 # Portfolio
+
+> 🟢 live on: [dpnunez.tech](https://dpnunez.tech)
+
+## Overview
 Welcome to my portfolio application! This project serves as a showcase of my skills, experiences, and projects. It's designed to provide visitors with insights into my background, expertise, and the work I've done. Inspired by the design of a code editor, my portfolio features a sleek and minimalist interface, reminiscent of a developer's workspace.
 
 I'd like to express my gratitude to two individuals who played significant roles in this project. Firstly, [Yanka Darelova](https://www.behance.net/darelova) deserves recognition for her invaluable ideas and layouts showcased on her Behance profile, which served as essential inspiration for the composition of this project. Secondly, [Jerome Hardway's](https://github.com/jeromehardaway/) technical insights and branding ideas were pivotal in the development of this portfolio, contributing diverse perspectives that enhanced both its functionality and aesthetic appeal.
 
+![thumb](https://github.com/dpnunez/portfolio/assets/46852072/cf507674-88e9-449a-988d-ac5bad0660fb)
 
 
-### Stack
+## Stack
 
 - [**Next.js**](https://nextjs.org/): Next.js is a React framework that enables server-side rendering, static site generation, and other optimizations out of the box. It provides a smooth development experience and excellent performance for web applications.
 
@@ -31,7 +36,7 @@ I'd like to express my gratitude to two individuals who played significant roles
 
 - [**NextAuth**](https://next-auth.js.org/): NextAuth is a complete open-source authentication solution for Next.js applications. It provides easy integration with various authentication providers, making it simple to add authentication and authorization features to the application.
 
-### Development Tools
+## Development Tools
 
 - **Vercel**: Vercel is a cloud platform for static sites and serverless functions. It is used for deploying and hosting the application, providing a seamless deployment experience with built-in CI/CD integration.
 
