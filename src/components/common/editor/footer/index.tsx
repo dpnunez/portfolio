@@ -5,6 +5,7 @@ import {
 import { Editor, Separator } from '@/components'
 import { FooterItem } from './footerItem'
 import { GitSection } from './gitRemote'
+import { ResumeItem } from './resume'
 
 export function Footer() {
   return (
@@ -12,7 +13,7 @@ export function Footer() {
       className="border-t border-editor-divider row-start-3 flex items-start"
       fullSize
     >
-      <div className="flex items-center h-full">
+      <div className="flex items-center h-full w-full">
         <GitSection />
         <Separator orientation="vertical" />
         <FooterItem>
@@ -22,6 +23,8 @@ export function Footer() {
           <span>0</span>
         </FooterItem>
         <Separator orientation="vertical" />
+        <Separator orientation="vertical" className="ml-auto" />
+        <ResumeItem />
       </div>
     </Editor.FileTreeSide>
   )
