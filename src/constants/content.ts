@@ -13,19 +13,18 @@ let hobbies = {
   chess: {
     chesscom: {
       nick: "portoEuru"
-      rapid: 1000,
-      blitz: 800
+      rapid: ~1000,
+      blitz: ~800
     }
   },
   cs2: { /*RIP csgo*/
     faceit: 8,
-    gc: 17
+    gc: 20
   },
   league: {
     nick: "Dubov",
     rank: "Gold"
   }
-  soccer_team: "Grêmio"
 }
 `,
 
