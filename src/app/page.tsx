@@ -19,7 +19,7 @@ export default function Page() {
           <h2 className="text-lg mb-4">
             <span>{'> '}</span>
             <span>
-              Full Stack Engineer, specialized in Javascript environment
+              Full Stack Developer, specialized in Javascript environment
             </span>
           </h2>
 

@@ -59,7 +59,7 @@ let hobbies = {
 const timeline = [
   {
     company: "nav9",
-    role: "FullStack Engineer",
+    role: "Front End Developer",
     period: "2019 dec - 2023 dec",
     description: 
       "Considering that nav9 is a software house, I've worked with a lot of different technologies and projects."
