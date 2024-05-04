@@ -56,7 +56,7 @@ function MenuItem({
           {children}
         </Link>
         <motion.div
-          className="bg-slate-100 h-[1px] w-full absolute bottom-0"
+          className="bg-foreground h-[1px] w-full absolute bottom-0"
           {...anim({
             variants: indicator,
             custom: hover || isActive,
